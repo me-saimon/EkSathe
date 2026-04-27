@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Help Request Details - EkSathe</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1e398a",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#121620",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .sticky-panel {
+            position: sticky;
+            top: 100px;
+        }
+
+        .line-height-relaxed {
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+    <!-- Top Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-8">
+                    <div class="flex items-center gap-2 cursor-pointer">
+                        <div class="text-primary">
+                            <svg class="size-8" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M24 45.8096C19.6865 45.8096 15.4698 44.5305 11.8832 42.134C8.29667 39.7376 5.50128 36.3314 3.85056 32.3462C2.19985 28.361 1.76794 23.9758 2.60947 19.7452C3.451 15.5145 5.52816 11.6284 8.57829 8.5783C11.6284 5.52817 15.5145 3.45101 19.7452 2.60948C23.9758 1.76795 28.361 2.19986 32.3462 3.85057C36.3314 5.50129 39.7376 8.29668 42.134 11.8833C44.5305 15.4698 45.8096 19.6865 45.8096 24L24 24L24 45.8096Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </div>
+                        <h1 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">EkSathe</h1>
+                    </div>
+                    <nav class="hidden md:flex items-center gap-6">
+                        <a class="text-sm font-medium text-slate-600 hover:text-primary transition-colors"
+                            href="#">Browse Requests</a>
+                        <a class="text-sm font-medium text-slate-600 hover:text-primary transition-colors" href="#">Our
+                            Mission</a>
+                        <a class="text-sm font-medium text-slate-600 hover:text-primary transition-colors"
+                            href="#">Success Stories</a>
+                    </nav>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div
+                        class="hidden lg:flex items-center bg-slate-100 dark:bg-slate-800 rounded-lg px-3 py-1.5 border border-transparent focus-within:border-primary">
+                        <span class="material-symbols-outlined text-slate-400 text-xl">search</span>
+                        <input class="bg-transparent border-none focus:ring-0 text-sm w-48"
+                            placeholder="Search causes..." type="text" />
+                    </div>
+                    <button
+                        class="bg-primary text-white px-5 py-2 rounded-lg text-sm font-bold hover:bg-opacity-90 transition-all shadow-sm">Donate
+                        Now</button>
+                    <div
+                        class="size-10 rounded-full bg-slate-200 border-2 border-white dark:border-slate-800 overflow-hidden">
+                        <img alt="Profile" data-alt="Portrait of a male user profile"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdgfZp2ru15NyTScZkplCSxUO1RESV9EFwAUm1uk-IzvbB1WUO3kHA7OD0_lMLSsq5IfDT6xG7S7tPyODMIg44zrRjyRko1oyUyBFPMplPdMpB8oG4B34tWpo7lxHb07Sm4TRO4p45Xs4YXDd_UTluYdgGzljyys7_kcEHs2K5xaV351oRrg9u9k8nHoGla4gSaoW0WWaZITK3Pk93QdaMJJ9aQBo20mGB3b57SYjiLJTud9lvj6xafIxqSaDAZPK4nU-7MpBm4hM" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-10 gap-8">
+            <!-- Left Column (70%) -->
+            <div class="lg:col-span-7 flex flex-col gap-8">
+                <!-- Featured Image -->
+                <div class="relative group">
+                    <div
+                        class="aspect-video w-full rounded-xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-800">
+                        <img alt="Medical Request" class="w-full h-full object-cover"
+                            data-alt="Young child in hospital bed receiving care"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQW53YcSavZ1Zkz_ZlVvcEMOd4z47vezafg2Np7g4bcJZBjkN1_N3sNKCMUSPQxtS5xeZEVxGvoTRxocJGTgkdciEDhYNEeWhSqpnMogYenejx094iLPKKjm8Nv3Q39xM1wZKonBBWLuJKHO5ysok42OFTRiMCBHkmq48cfkGOgHnbEbGVfOhFo9o972-56Tcli4U2qzb8IKWGbr402T7HmFB-UMGCdYygvzxk4tYKVZGuO5Q-Pvq6tLEFj85Qx9UZsJHWbMHFMHY" />
+                    </div>
+                    <div class="absolute top-4 left-4 flex gap-2">
+                        <span
+                            class="bg-red-600 text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider">Urgent</span>
+                        <span
+                            class="bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1">
+                            <span class="material-symbols-outlined text-xs">verified</span> Verified
+                        </span>
+                    </div>
+                </div>
+                <!-- Title & Meta -->
+                <div class="flex flex-col gap-4">
+                    <h1 class="text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">Urgent
+                        Surgery Fund for 5-Year-Old Rahim</h1>
+                    <div class="flex flex-wrap items-center gap-y-2 gap-x-6 text-slate-500 dark:text-slate-400">
+                        <div class="flex items-center gap-2">
+                            <div class="size-6 rounded-full overflow-hidden bg-slate-100">
+                                <img alt="Posted by" data-alt="Small circular avatar of Morshed Alam"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwmoQh1OU3kI_0myqfsmz73mIJuAKVc-nBRgIw3ll7kx3eF1HziYHdBzgR8iugh1aMMXum4mfU0pnPrV291vP-tJYR9-wzTbDN0SF_R01ZL_Mojb76NsJMrVS2KBJUJV-i3HMGiHfIsYMDEZMS6tXxjWk6NPTNw3AWmc5Gp9QZPK4ROMv5rTo6bmZqycHdQpbYY6i_g2I0NSRYS6-eVkb4MaubjKnbeA3hVoLHBr41hyj9ygTp1Yzvu99NeEdCWCNrbhCzj8ZF_qw" />
+                            </div>
+                            <span class="text-sm font-medium">By <a class="text-primary hover:underline"
+                                    href="#">Morshed Alam</a></span>
+                        </div>
+                        <div class="flex items-center gap-1 text-sm">
+                            <span class="material-symbols-outlined text-lg">calendar_today</span>
+                            <span>May 12, 2026</span>
+                        </div>
+                        <div class="flex items-center gap-1 text-sm">
+                            <span class="material-symbols-outlined text-lg text-red-500">location_on</span>
+                            <span>Dhaka, Bangladesh</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="border-slate-200 dark:border-slate-800" />
+                <!-- Description Section -->
+                <section class="flex flex-col gap-4">
+                    <h2 class="text-xl font-bold text-slate-900 dark:text-white">The Story</h2>
+                    <div class="line-height-relaxed text-slate-600 dark:text-slate-300 space-y-4">
+                        <p>Rahim is a vibrant 5-year-old boy from a modest neighborhood in Dhaka. Two months ago, he was
+                            diagnosed with a congenital heart defect that requires immediate surgical correction. His
+                            father, a small-scale vendor, and his mother, a homemaker, have exhausted all their savings
+                            on diagnostic tests and initial care.</p>
+                        <p>The doctors at the National Heart Institute have scheduled the surgery for early next month,
+                            but the family still needs ৳ 1,80,000 to cover the remaining hospital and post-operative
+                            costs. Without this surgery, Rahim's condition will deteriorate rapidly, affecting his
+                            ability to walk or even play like other children.</p>
+                        <p>EkSathe has independently verified all medical documents, prescription records, and hospital
+                            estimates. We are calling upon our community to come forward and help give Rahim a second
+                            chance at life. Every Taka counts.</p>
+                    </div>
+                </section>
+                <!-- Location Card -->
+                <section
+                    class="bg-white dark:bg-slate-900 rounded-xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary">map</span> Treatment Location
+                        </h2>
+                        <a class="text-sm font-semibold text-primary flex items-center gap-1 hover:underline" href="#">
+                            Open in Maps <span class="material-symbols-outlined text-sm">open_in_new</span>
+                        </a>
+                    </div>
+                    <div
+                        class="w-full h-48 bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden relative border border-slate-200 dark:border-slate-700">
+                        <!-- Map Placeholder Image -->
+                        <img alt="Map" class="w-full h-full object-cover opacity-60 grayscale"
+                            data-alt="Topographic map style background of Dhaka city" data-location="Dhaka, Bangladesh"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJ-dc_y-LsJ8RFWz83PQu49dhqThe2GSQEi_jRDljfvCgw-URXkgsQmI0Om9M8Zuukt0cHBDovzHX0PamW89NvR_8gv0jiUJJ0mDebw1202y4As9pRZlExNCEMdwKiMNVcBUSzel9zo7MzxQ0z33zflkM-1q6uhQR8Qr9bMNVlwVgbV9AxM-MEPiaUPaaQMDU3MiePEJugzPy1UdkHqbu2N0f-YtNB9XVg31rLGUmE3BMAmB5X_fy42YRoaMzDBvx7FKXqRP7vuVM" />
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="flex flex-col items-center">
+                                <span
+                                    class="material-symbols-outlined text-red-600 text-4xl animate-bounce">location_on</span>
+                                <div
+                                    class="bg-white dark:bg-slate-900 px-3 py-1 rounded-md shadow-md text-xs font-bold border border-slate-200 dark:border-slate-700 mt-1">
+                                    National Heart Institute
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mt-3 text-xs text-slate-500 text-center">Sher-e-Bangla Nagar, Dhaka 1207, Bangladesh</p>
+                </section>
+                <!-- Updates Timeline -->
+                <section class="flex flex-col gap-4">
+                    <h2 class="text-xl font-bold text-slate-900 dark:text-white">Updates &amp; Progress</h2>
+                    <div
+                        class="space-y-6 relative before:content-[''] before:absolute before:left-3 before:top-2 before:bottom-2 before:w-0.5 before:bg-slate-200 dark:before:bg-slate-800">
+                        <!-- Update 1 -->
+                        <div class="relative pl-10">
+                            <div
+                                class="absolute left-0 top-1.5 size-6 rounded-full bg-primary flex items-center justify-center z-10 border-4 border-white dark:border-slate-900">
+                                <span class="material-symbols-outlined text-white text-[10px]">check</span>
+                            </div>
+                            <p class="text-xs font-bold text-primary uppercase mb-1">May 20, 2026</p>
+                            <h3 class="text-sm font-bold text-slate-900 dark:text-white">Donation Milestone: 40% reached
+                            </h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">Thank you to everyone! We have
+                                crossed the 40% mark. Rahim's family is deeply grateful for the support.</p>
+                        </div>
+                        <!-- Update 2 -->
+                        <div class="relative pl-10">
+                            <div
+                                class="absolute left-0 top-1.5 size-6 rounded-full bg-slate-300 dark:bg-slate-700 flex items-center justify-center z-10 border-4 border-white dark:border-slate-900">
+                                <span
+                                    class="material-symbols-outlined text-slate-600 dark:text-slate-400 text-[10px]">description</span>
+                            </div>
+                            <p class="text-xs font-bold text-slate-500 uppercase mb-1">May 15, 2026</p>
+                            <h3 class="text-sm font-bold text-slate-900 dark:text-white">New medical reports uploaded
+                            </h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">Pre-surgery blood test results
+                                have been added to the case documents for transparency.</p>
+                            <button
+                                class="mt-2 text-xs font-semibold text-primary flex items-center gap-1 hover:underline">
+                                View Documents <span class="material-symbols-outlined text-xs">download</span>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- Right Column - Sticky Sidebar (30%) -->
+            <div class="lg:col-span-3">
+                <div class="sticky-panel flex flex-col gap-6">
+                    <!-- Donation Progress Card -->
+                    <div
+                        class="bg-white dark:bg-slate-900 rounded-xl p-6 border border-slate-200 dark:border-slate-800 shadow-xl">
+                        <div class="flex flex-col gap-4">
+                            <div>
+                                <div class="flex items-baseline gap-1">
+                                    <span class="text-2xl font-black text-slate-900 dark:text-white">৳ 1,20,000</span>
+                                    <span class="text-sm text-slate-500">raised</span>
+                                </div>
+                                <div class="text-sm font-medium text-slate-400 mt-1">of ৳ 3,00,000 goal</div>
+                            </div>
+                            <!-- Progress Bar -->
+                            <div class="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-3 overflow-hidden">
+                                <div class="bg-primary h-full rounded-full transition-all duration-1000"
+                                    style="width: 40%;"></div>
+                            </div>
+                            <div class="flex justify-between text-xs font-bold">
+                                <span class="text-primary">40% Funded</span>
+                                <span class="text-slate-500">142 Donors</span>
+                            </div>
+                            <button
+                                class="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg hover:shadow-lg hover:brightness-110 transition-all flex items-center justify-center gap-2">
+                                <span class="material-symbols-outlined">volunteer_activism</span> Donate Now
+                            </button>
+                            <p class="text-[10px] text-center text-slate-400 px-4 leading-tight">100% of your donation
+                                goes directly to the hospital billing department.</p>
+                        </div>
+                    </div>
+                    <!-- Volunteer Section -->
+                    <div class="bg-primary/5 dark:bg-primary/10 rounded-xl p-6 border border-primary/20">
+                        <h3 class="font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-4">
+                            <span class="material-symbols-outlined text-primary">groups</span> Volunteers Needed
+                        </h3>
+                        <div class="flex flex-col gap-3">
+                            <div class="flex justify-between items-center text-sm">
+                                <span class="text-slate-600 dark:text-slate-400">Total Positions</span>
+                                <span class="font-bold text-slate-900 dark:text-white">3</span>
+                            </div>
+                            <div class="flex justify-between items-center text-sm">
+                                <span class="text-slate-600 dark:text-slate-400">Already Applied</span>
+                                <span class="font-bold text-green-600">1</span>
+                            </div>
+                            <div class="flex justify-between items-center text-sm">
+                                <span class="text-slate-600 dark:text-slate-400">Slots Left</span>
+                                <span class="font-bold text-primary">2</span>
+                            </div>
+                            <button
+                                class="mt-2 w-full border-2 border-primary text-primary py-2.5 rounded-lg font-bold text-sm hover:bg-primary hover:text-white transition-all">
+                                Apply as Volunteer
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Share Section -->
+                    <div
+                        class="bg-white dark:bg-slate-900 rounded-xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+                        <p class="text-sm font-bold text-slate-900 dark:text-white mb-4">Spread the word</p>
+                        <div class="flex gap-3">
+                            <button class="flex-1 flex flex-col items-center gap-2 group">
+                                <div
+                                    class="size-10 rounded-full bg-[#1877F2]/10 flex items-center justify-center text-[#1877F2] group-hover:bg-[#1877F2] group-hover:text-white transition-all">
+                                    <svg class="size-5" fill="currentColor" viewbox="0 0 24 24">
+                                        <path
+                                            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <span class="text-[10px] font-medium text-slate-500 uppercase">Share</span>
+                            </button>
+                            <button class="flex-1 flex flex-col items-center gap-2 group">
+                                <div
+                                    class="size-10 rounded-full bg-[#25D366]/10 flex items-center justify-center text-[#25D366] group-hover:bg-[#25D366] group-hover:text-white transition-all">
+                                    <svg class="size-5" fill="currentColor" viewbox="0 0 24 24">
+                                        <path
+                                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <span class="text-[10px] font-medium text-slate-500 uppercase">WhatsApp</span>
+                            </button>
+                            <button class="flex-1 flex flex-col items-center gap-2 group">
+                                <div
+                                    class="size-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 group-hover:bg-primary group-hover:text-white transition-all">
+                                    <span class="material-symbols-outlined text-xl">link</span>
+                                </div>
+                                <span class="text-[10px] font-medium text-slate-500 uppercase">Copy</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Community Support & Comments Section -->
+        <section class="mt-16 lg:max-w-4xl">
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-8 flex items-center gap-2">
+                <span class="material-symbols-outlined">forum</span> Community Support
+            </h2>
+            <div
+                class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+                <!-- Input Section -->
+                <div class="p-6 border-b border-slate-100 dark:border-slate-800">
+                    <div class="flex gap-4">
+                        <div class="size-10 rounded-full bg-slate-200 overflow-hidden shrink-0">
+                            <img alt="Avatar" data-alt="Small profile avatar of current user"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDt-8ybThnnC2A2NcVMvCghLKbKhrWgkNlTrUP2IS7_2WLpPRX2QfMZeQ1qHHm6RaLv5CJcqIQc0hSl6z3HPcYXW7lF11OuQNkFEib08teOoqtVfyRQtFHe2s_7pH1As8EmIYTOMyJ_z02kyAfdOS8-UV4Apcew_VcjjfuuUZ78aJwmxnONtUDe6h8_tbgZvGeriDGZ0bVu2PODxTND4V2XPrGlWLgyLZAq0oNiH8kEVkjw0L8RX7L5LroM1m5W4-q1IcyyrItppfg" />
+                        </div>
+                        <div class="flex-1 flex flex-col gap-3">
+                            <textarea
+                                class="w-full bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-lg text-sm focus:ring-primary focus:border-primary"
+                                placeholder="Leave a message of support..." rows="2"></textarea>
+                            <div class="flex justify-end">
+                                <button
+                                    class="bg-primary text-white px-6 py-2 rounded-lg text-sm font-bold shadow-sm hover:brightness-110">Post
+                                    Support</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Comments List -->
+                <div class="divide-y divide-slate-100 dark:divide-slate-800">
+                    <!-- Comment 1 -->
+                    <div class="p-6 flex gap-4">
+                        <div class="size-10 rounded-full bg-slate-100 overflow-hidden shrink-0">
+                            <img alt="Avatar" data-alt="Avatar of female donor Sarah Hasan"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCasaahSUUuvehHLgTG5xP-yCOVoBuQIbHHw5_eOOdnwW7Cg1cmVmq2VHB5nrM9a3HdH7WwpemSFjNQAUuI2tCbzPTr3TqUgOx6J-Bz4Yc3NPn5EJ6TK2Drc3fJjvzt0GPozlQqdixs_hfDG86esbGjhJ5tTWkx1Dw7Hwou396SGcfypvy_riM-cwTLChzE8MahJsBunEc72drCDy_P5ElBxDMeIUhd_vKJW5-iwORqtUFtcYYJk0qvfZif-hc67abyIqWV_rQ2eDc" />
+                        </div>
+                        <div class="flex flex-col">
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="text-sm font-bold text-slate-900 dark:text-white">Sarah Hasan</span>
+                                <span
+                                    class="text-[10px] bg-primary/10 text-primary px-1.5 rounded font-bold uppercase">Donor</span>
+                                <span class="text-xs text-slate-400">• 2 hours ago</span>
+                            </div>
+                            <p class="text-sm text-slate-600 dark:text-slate-400">Praying for little Rahim's speedy
+                                recovery. Stay strong, Morshed Bhai. We are all with you!</p>
+                        </div>
+                    </div>
+                    <!-- Comment 2 -->
+                    <div class="p-6 flex gap-4">
+                        <div class="size-10 rounded-full bg-slate-100 overflow-hidden shrink-0">
+                            <img alt="Avatar" data-alt="Avatar of male donor Karim Uddin"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuPAPbYojwWTaaqpgACllnzePU8PbNNVLm6cBvvL4EB8wIQZQ-Cl9J0lagTz_oxsVYgZaPeiOn1VtHb1YVUEJjtIF2xEkvTSUrFvXovdWOKSkq5_N_gYV2PAUDRC3wuMCwRiSZEkZ9anGvo7jsfAExeVrnX_442xwopztCEgThNnfy5hEEmkRWOoIYdgSBYgquyOmfaRia4W0AT80fswRnsKy0dmvkU-0tLH4UPLhewLClj6ZKili9dDu1P96DbxwMfGTpfXro8Q4" />
+                        </div>
+                        <div class="flex flex-col">
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="text-sm font-bold text-slate-900 dark:text-white">Karim Uddin</span>
+                                <span
+                                    class="text-[10px] bg-primary/10 text-primary px-1.5 rounded font-bold uppercase">Donor</span>
+                                <span class="text-xs text-slate-400">• 5 hours ago</span>
+                            </div>
+                            <p class="text-sm text-slate-600 dark:text-slate-400">Just donated. May Allah bless him and
+                                his family during this difficult time.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Related Requests -->
+        <section class="mt-16 mb-12">
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-8">Similar Requests Near You</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div
+                    class="bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="aspect-video relative">
+                        <img alt="Request" class="w-full h-full object-cover"
+                            data-alt="Community volunteers distributing food relief"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXwgZGRNWD17B1L8nzhtg6Tr6SZdn7ckCHygz-so4PAPyzcwexoXkE-1uKkiA95pW94CqEMC6jcPGarctfkD2oKiinZfIRvyUAIDDWyyHtoNirIaMK5j9iUnEoiEdvuGHvrlgR2bp-ToUj90kD1jKPpug3IzSpKCoRp0PaEnsb2XSsgS2reTJgcB2uZ9NvOYLd8iDP_ZJZY4rohl72Q76CuSfxDmleG2mHO_h-j30clzZ_LNYAU-LvfZMR5Vs8R_3YwRFRcQ1fKk8" />
+                        <div
+                            class="absolute top-2 right-2 bg-white/90 dark:bg-slate-900/90 text-[10px] font-bold px-2 py-1 rounded">
+                            FOOD RELIEF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-slate-900 dark:text-white text-sm line-clamp-1 mb-2">Support for Old
+                            Age Home in Mirpur</h3>
+                        <div class="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full mb-2">
+                            <div class="bg-primary h-full rounded-full" style="width: 75%;"></div>
+                        </div>
+                        <div class="flex justify-between text-xs text-slate-500">
+                            <span>৳ 45,000 raised</span>
+                            <span class="font-bold text-primary">75%</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div
+                    class="bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="aspect-video relative">
+                        <img alt="Request" class="w-full h-full object-cover"
+                            data-alt="Students sitting in a rural classroom setup"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCC0StQ3s2IVHXXzmiPtoHtvKiz-OmNxe7DeO4x8b3W0UoHIWeT0SsDjEfJAGNzLnMuxP-dNwVBtafy_fYi-OFbMDgyI8ondpRL_bZDMLwGr2ajJOk3tWoBVe00qbhEU3c1O66bKATFgkN8SKryUU7_srGd3-ojHx-IZyGUozjYUfNfvEG1dtcD7tJ82fQKWvUgy6LOnVve-dqw3ZEfQ-vkLXfb1ooO2I2gFfnX0BKixrX2d9P3Pmo0e9aJB7vk_NQzB4siKCDYxq8" />
+                        <div
+                            class="absolute top-2 right-2 bg-white/90 dark:bg-slate-900/90 text-[10px] font-bold px-2 py-1 rounded">
+                            EDUCATION</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-slate-900 dark:text-white text-sm line-clamp-1 mb-2">Rebuilding
+                            Primary School Library</h3>
+                        <div class="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full mb-2">
+                            <div class="bg-primary h-full rounded-full" style="width: 20%;"></div>
+                        </div>
+                        <div class="flex justify-between text-xs text-slate-500">
+                            <span>৳ 12,500 raised</span>
+                            <span class="font-bold text-primary">20%</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div
+                    class="bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="aspect-video relative">
+                        <img alt="Request" class="w-full h-full object-cover"
+                            data-alt="Medical professional with a stethoscope"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwAVI0vGNMWUy0XbhHF8VlXWqWpCWeYVUuPF-8IhGbgeQ8dLij9VuDcQ-JrvBSZYkAxVOIEjSjo3TyHc3J8vxDeMjMsTXSRsuLH3eJe4jtvVWymi7XzkwvxnBAsCZg8yrGstQFg8wV3FAnGbfvkm_NOAo4A7vRW_qs6lc_qfahngu-zpto_Gp6xIqQymflHN8SDe7SsYGtwhGh-KUhI5ABqFa_9zOsRGr-0ZUnbAB8zX4Jqx1v5wlbVM2nQMJcwVD-0GA-IZ-H5Yg" />
+                        <div
+                            class="absolute top-2 right-2 bg-white/90 dark:bg-slate-900/90 text-[10px] font-bold px-2 py-1 rounded">
+                            HEALTHCARE</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-slate-900 dark:text-white text-sm line-clamp-1 mb-2">Medication Fund
+                            for Diabetic Center</h3>
+                        <div class="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full mb-2">
+                            <div class="bg-primary h-full rounded-full" style="width: 55%;"></div>
+                        </div>
+                        <div class="flex justify-between text-xs text-slate-500">
+                            <span>৳ 88,000 raised</span>
+                            <span class="font-bold text-primary">55%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-2 mb-4 text-white">
+                        <div class="size-6 text-primary">
+                            <svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M24 45.8096C19.6865 45.8096 15.4698 44.5305 11.8832 42.134C8.29667 39.7376 5.50128 36.3314 3.85056 32.3462C2.19985 28.361 1.76794 23.9758 2.60947 19.7452C3.451 15.5145 5.52816 11.6284 8.57829 8.5783C11.6284 5.52817 15.5145 3.45101 19.7452 2.60948C23.9758 1.76795 28.361 2.19986 32.3462 3.85057C36.3314 5.50129 39.7376 8.29668 42.134 11.8833C44.5305 15.4698 45.8096 19.6865 45.8096 24L24 24L24 45.8096Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold tracking-tight">EkSathe</span>
+                    </div>
+                    <p class="text-xs leading-relaxed">The most trusted crowdfunding platform for medical and emergency
+                        needs in Bangladesh.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm">Quick Links</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a class="hover:text-primary transition-colors" href="#">How it Works</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Start a Campaign</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Donor Stories</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">FAQs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm">Organization</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Financial Reports</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Transparency</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-sm">Newsletter</h4>
+                    <p class="text-xs mb-4">Stay updated with urgent needs.</p>
+                    <div class="flex gap-2">
+                        <input
+                            class="bg-slate-900 border-slate-800 rounded px-3 py-2 text-xs w-full focus:ring-primary focus:border-primary"
+                            placeholder="Email address" type="email" />
+                        <button class="bg-primary text-white p-2 rounded hover:brightness-110">
+                            <span class="material-symbols-outlined text-sm">send</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="pt-8 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-medium uppercase tracking-widest">
+                <p>© 2026 EkSathe Organization. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a class="hover:text-white" href="#">Privacy Policy</a>
+                    <a class="hover:text-white" href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

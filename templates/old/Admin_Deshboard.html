@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>EkSathe Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1e398a",
+                        "secondary": "#16a34a",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#121620",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-size: 24px;
+        }
+
+        .sidebar-active {
+            background-color: rgba(30, 57, 138, 0.1);
+            color: #1e398a;
+            border-left: 4px solid #1e398a;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e2e8f0;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar Navigation -->
+        <aside
+            class="w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex-col hidden lg:flex">
+            <div class="p-6 flex items-center gap-3">
+                <div class="bg-primary p-2 rounded-lg text-white">
+                    <span class="material-symbols-outlined">volunteer_activism</span>
+                </div>
+                <h1 class="text-xl font-bold tracking-tight text-primary">EkSathe</h1>
+            </div>
+            <nav class="flex-1 px-4 space-y-1 mt-4">
+                <a class="sidebar-active flex items-center gap-3 px-3 py-3 rounded-lg font-medium transition-all"
+                    href="#">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    <span>Overview</span>
+                </a>
+                <a class="flex items-center gap-3 px-3 py-3 rounded-lg font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+                    href="#">
+                    <span class="material-symbols-outlined">account_tree</span>
+                    <span>Projects</span>
+                </a>
+                <a class="flex items-center gap-3 px-3 py-3 rounded-lg font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+                    href="#">
+                    <span class="material-symbols-outlined">favorite</span>
+                    <span>Donations</span>
+                </a>
+                <a class="flex items-center gap-3 px-3 py-3 rounded-lg font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+                    href="#">
+                    <span class="material-symbols-outlined">group</span>
+                    <span>Volunteers</span>
+                </a>
+                <a class="flex items-center gap-3 px-3 py-3 rounded-lg font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+                    href="#">
+                    <span class="material-symbols-outlined">bar_chart</span>
+                    <span>Reports</span>
+                </a>
+                <a class="flex items-center gap-3 px-3 py-3 rounded-lg font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all pt-10"
+                    href="#">
+                    <span class="material-symbols-outlined">settings</span>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            <div class="p-4 border-t border-slate-200 dark:border-slate-800">
+                <div class="flex items-center gap-3 p-2 bg-primary/5 rounded-xl">
+                    <div class="size-10 rounded-full bg-cover bg-center" data-alt="Administrator profile picture avatar"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD260NLnfn-zTEVy7nR71w8_z4y1eQi9zb4vMdtOYCS1QeYDUNlQHSpRey9HWrV_UsmtbHDS0ML5uADGMHBpzqEJnXuc_prnFXT4bLRYIE4BDGsv-qbqfSryRJVVnOajUesQS3StFCTR6vzKzJiFla9YPZxIfHTWprgCa-folP9X9mTBVxUmBo45GdGxfk66nIamfR-EpPTEIXg55zodoJnsgDTjsgWMUPfjFijsN6cRxDINuqwLHmQBMtgyWD8My_ka18gi14MpNE')">
+                    </div>
+                    <div class="flex-1 overflow-hidden">
+                        <p class="text-sm font-semibold truncate">Admin Name</p>
+                        <p class="text-xs text-slate-500 truncate">Bangladesh Office</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <!-- Main Content Area -->
+        <main class="flex-1 flex flex-col min-w-0 overflow-hidden bg-background-light dark:bg-background-dark">
+            <!-- Sticky Top NavBar -->
+            <header
+                class="sticky top-0 z-10 flex h-16 items-center justify-between border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md px-6">
+                <div class="flex items-center flex-1 gap-4">
+                    <button class="lg:hidden text-slate-600">
+                        <span class="material-symbols-outlined">menu</span>
+                    </button>
+                    <div class="relative max-w-md w-full">
+                        <span
+                            class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+                        <input
+                            class="w-full bg-slate-100 dark:bg-slate-800 border-none rounded-lg py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary/20"
+                            placeholder="Search projects, donors, or volunteers..." type="text" />
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button
+                        class="p-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg relative">
+                        <span class="material-symbols-outlined">notifications</span>
+                        <span
+                            class="absolute top-2 right-2 size-2 bg-red-500 rounded-full border-2 border-white dark:border-slate-900"></span>
+                    </button>
+                    <button
+                        class="p-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
+                        <span class="material-symbols-outlined">chat_bubble</span>
+                    </button>
+                    <div class="h-6 w-px bg-slate-200 dark:border-slate-800 mx-2"></div>
+                    <div class="flex items-center gap-2 cursor-pointer">
+                        <span class="text-sm font-medium hidden sm:inline">Assalamu Alaikum, Admin</span>
+                        <span class="material-symbols-outlined text-slate-400">expand_more</span>
+                    </div>
+                </div>
+            </header>
+            <!-- Scrollable Content -->
+            <div class="flex-1 overflow-y-auto p-6 space-y-8 custom-scrollbar">
+                <!-- Welcome Header -->
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                    <div>
+                        <h2 class="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white">Welcome back,
+                            Admin</h2>
+                        <p class="text-slate-500 text-sm">Today is Monday, 23 October 2023</p>
+                    </div>
+                    <button
+                        class="bg-primary text-white px-4 py-2 rounded-lg font-semibold flex items-center gap-2 hover:bg-primary/90 shadow-lg shadow-primary/20 transition-all">
+                        <span class="material-symbols-outlined text-sm">add</span>
+                        Create New Project
+                    </button>
+                </div>
+                <!-- Quick Stats Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Total Donations -->
+                    <div
+                        class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="p-2 bg-primary/10 text-primary rounded-lg">
+                                <span class="material-symbols-outlined">payments</span>
+                            </div>
+                            <span
+                                class="text-secondary text-xs font-bold flex items-center bg-secondary/10 px-2 py-1 rounded-full">
+                                <span class="material-symbols-outlined !text-xs">trending_up</span> 12.5%
+                            </span>
+                        </div>
+                        <p class="text-sm text-slate-500 font-medium">Total Donations</p>
+                        <h3 class="text-2xl font-bold mt-1">৳4,250,000</h3>
+                    </div>
+                    <!-- Active Projects -->
+                    <div
+                        class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="p-2 bg-primary/10 text-primary rounded-lg">
+                                <span class="material-symbols-outlined">folder_special</span>
+                            </div>
+                            <span
+                                class="text-slate-500 text-xs font-bold bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded-full">Stable</span>
+                        </div>
+                        <p class="text-sm text-slate-500 font-medium">Active Projects</p>
+                        <h3 class="text-2xl font-bold mt-1">12</h3>
+                    </div>
+                    <!-- Volunteer Applications -->
+                    <div
+                        class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="p-2 bg-primary/10 text-primary rounded-lg">
+                                <span class="material-symbols-outlined">person_add</span>
+                            </div>
+                            <span
+                                class="text-secondary text-xs font-bold flex items-center bg-secondary/10 px-2 py-1 rounded-full">
+                                <span class="material-symbols-outlined !text-xs">new_releases</span> +5 New
+                            </span>
+                        </div>
+                        <p class="text-sm text-slate-500 font-medium">Volunteer Apps</p>
+                        <h3 class="text-2xl font-bold mt-1">45</h3>
+                    </div>
+                    <!-- Lives Impacted -->
+                    <div
+                        class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="p-2 bg-primary/10 text-primary rounded-lg">
+                                <span class="material-symbols-outlined">diversity_1</span>
+                            </div>
+                            <span
+                                class="text-secondary text-xs font-bold flex items-center bg-secondary/10 px-2 py-1 rounded-full">
+                                <span class="material-symbols-outlined !text-xs">trending_up</span> 8.4%
+                            </span>
+                        </div>
+                        <p class="text-sm text-slate-500 font-medium">Lives Impacted</p>
+                        <h3 class="text-2xl font-bold mt-1">5,240</h3>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
+                    <!-- Active Projects Table -->
+                    <div
+                        class="xl:col-span-2 bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm overflow-hidden">
+                        <div
+                            class="p-6 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center">
+                            <h3 class="text-lg font-bold">Active Projects</h3>
+                            <button class="text-primary text-sm font-semibold hover:underline">View All</button>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left">
+                                <thead
+                                    class="bg-slate-50 dark:bg-slate-800/50 text-slate-500 text-xs uppercase font-semibold">
+                                    <tr>
+                                        <th class="px-6 py-4">Project Title</th>
+                                        <th class="px-6 py-4">Progress</th>
+                                        <th class="px-6 py-4">Raised</th>
+                                        <th class="px-6 py-4">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+                                    <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                                        <td class="px-6 py-4">
+                                            <div class="flex items-center gap-3">
+                                                <div class="size-10 rounded-lg bg-cover bg-center"
+                                                    data-alt="Flood relief campaign thumbnail"
+                                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDhWSuk3BmbLq5HwDLy4ZeajAhrqsiaIAA3ufhYJz6aXJXXgy2_dN5AJjU1ww8Swn4G43wg4Ee4Ni54TWM_HESTGptth86qRE-AZBbgeCQSVqnUbtNtG7fpqC3WqaX_pqTLmdLwCJ4f6heZdLpyPkdmX0vBjWxlDeP76z_uNcdwAB9HJMyF0nvHeq95jFAgVS5w0XvdOn57D6K3co9JojAEj6vrKW0rUeqT1AXhPIlmu63FzlzmCERtLsVDqp1XrLOmqTOjK_2nL6Q')">
+                                                </div>
+                                                <div>
+                                                    <p class="font-bold text-sm">Flood Relief 2023</p>
+                                                    <p class="text-xs text-slate-500">Sylhet Region</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <div
+                                                class="w-full bg-slate-100 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                                                <div class="bg-secondary h-full rounded-full" style="width: 75%"></div>
+                                            </div>
+                                            <span class="text-[10px] text-slate-500 mt-1 block">75% Complete</span>
+                                        </td>
+                                        <td class="px-6 py-4 font-semibold text-sm">৳1,500,000</td>
+                                        <td class="px-6 py-4">
+                                            <button
+                                                class="px-4 py-1.5 bg-slate-100 dark:bg-slate-800 text-primary dark:text-blue-400 text-xs font-bold rounded-lg hover:bg-primary/10 transition-colors">Manage</button>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                                        <td class="px-6 py-4">
+                                            <div class="flex items-center gap-3">
+                                                <div class="size-10 rounded-lg bg-cover bg-center"
+                                                    data-alt="Winter clothes distribution thumbnail"
+                                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA6dNGHgfzZLGTjS8imZuG3I1PmeXi05t-63loAjTJKvSAlrmukWHPjfjAUuT1bQOw9hUhaEB_QIXzODaPDA8vA8FQwZosfdpv1xIRulugmy32xFU2jXXxfnVl5Vo9Zqg-i7mcPHG0uIPIkzv2YTXTDamExPLzIzeh7sc_tmMW2mA2W7w4wcFcK4RnsCYq7-VPSya0-KIeFq0kKgXwfru09mRoML_H2z4aXVbBw93_nk5YkysSP_V1XYyUzACor8wkaFm5kaA8SS94')">
+                                                </div>
+                                                <div>
+                                                    <p class="font-bold text-sm">Winter Clothing Drive</p>
+                                                    <p class="text-xs text-slate-500">North Bengal</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <div
+                                                class="w-full bg-slate-100 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                                                <div class="bg-secondary h-full rounded-full" style="width: 40%"></div>
+                                            </div>
+                                            <span class="text-[10px] text-slate-500 mt-1 block">40% Complete</span>
+                                        </td>
+                                        <td class="px-6 py-4 font-semibold text-sm">৳400,000</td>
+                                        <td class="px-6 py-4">
+                                            <button
+                                                class="px-4 py-1.5 bg-slate-100 dark:bg-slate-800 text-primary dark:text-blue-400 text-xs font-bold rounded-lg hover:bg-primary/10 transition-colors">Manage</button>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                                        <td class="px-6 py-4">
+                                            <div class="flex items-center gap-3">
+                                                <div class="size-10 rounded-lg bg-cover bg-center"
+                                                    data-alt="School building project thumbnail"
+                                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDXj5CIvOJv99X-ab47tC12fPABYBppAJjfzsOp6H5xyhdhBfx9Z1U1vjpjctKpQ_5SlVSOor5YQlxQ18eBP37FK5J3C-qxKvOrw3rusysEhTHVz1wpt-oWfOEr2i8piSA5vPebNK21EOrmoUFWuDrxiyJ60Yc_ZiD8OFp85vAVp5WyxMCY-GR-oiEpMzFqdVe0hb6SJiLhTswEIAeF9xxhQZAHSaZBQPdXEUh1o1OPIcQNg5SOhusDVzJLmhQnNv4T15BJMWfkoSI')">
+                                                </div>
+                                                <div>
+                                                    <p class="font-bold text-sm">Dhaka Slum School</p>
+                                                    <p class="text-xs text-slate-500">Korail Area</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <div
+                                                class="w-full bg-slate-100 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                                                <div class="bg-secondary h-full rounded-full" style="width: 92%"></div>
+                                            </div>
+                                            <span class="text-[10px] text-slate-500 mt-1 block">92% Complete</span>
+                                        </td>
+                                        <td class="px-6 py-4 font-semibold text-sm">৳2,100,000</td>
+                                        <td class="px-6 py-4">
+                                            <button
+                                                class="px-4 py-1.5 bg-slate-100 dark:bg-slate-800 text-primary dark:text-blue-400 text-xs font-bold rounded-lg hover:bg-primary/10 transition-colors">Manage</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- Impact Analytics & Volunteer Preview -->
+                    <div class="space-y-8">
+                        <!-- Impact Analytics Chart Area -->
+                        <div
+                            class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm">
+                            <h3 class="text-lg font-bold mb-6">Monthly Impact</h3>
+                            <div class="flex items-end justify-between h-32 gap-2 mb-2">
+                                <div class="bg-primary/20 w-full rounded-t-lg" style="height: 40%"></div>
+                                <div class="bg-primary/20 w-full rounded-t-lg" style="height: 60%"></div>
+                                <div class="bg-primary/20 w-full rounded-t-lg" style="height: 50%"></div>
+                                <div class="bg-primary/20 w-full rounded-t-lg" style="height: 80%"></div>
+                                <div class="bg-primary w-full rounded-t-lg shadow-lg shadow-primary/20"
+                                    style="height: 100%"></div>
+                                <div class="bg-primary/20 w-full rounded-t-lg" style="height: 70%"></div>
+                            </div>
+                            <div class="flex justify-between text-[10px] text-slate-400 font-bold uppercase">
+                                <span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span
+                                    class="text-primary">Oct</span><span>Nov</span>
+                            </div>
+                        </div>
+                        <!-- Volunteer Management Preview -->
+                        <div
+                            class="bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm p-6">
+                            <h3 class="text-lg font-bold mb-4">Pending Volunteers</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between group">
+                                    <div class="flex items-center gap-3">
+                                        <div class="size-10 rounded-full bg-cover bg-center"
+                                            data-alt="Volunteer candidate avatar"
+                                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAYfJwvF7VaNyzdtxgir-ZO4z33L0tbRF2nZj1bR1rU0Sz9C0nFgKgwUXvLaXuszZHnWM7aTRAtzwHt7jrNHZ5oD1Z--sAejf770KbyY7FbhIJkrWh-KseMhOyS5M99K8NgA_hsExGlQT8qJ2c2onTtxp3VV6gyGGvvmK6eVbMoEMiYuhS5p_8Xkcln9_cIxt90MifoO-Q1AvEsiPAd6J5asjfMqr4bRcoZ8qbM2EoTXkZpkKaa_JlhsW480iiDbamAalQmjqZYDfk')">
+                                        </div>
+                                        <div>
+                                            <p class="text-sm font-bold">Rahim Ahmed</p>
+                                            <p class="text-[10px] text-slate-500">Dhaka • Student</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-1">
+                                        <button
+                                            class="size-8 flex items-center justify-center rounded-lg bg-secondary/10 text-secondary hover:bg-secondary hover:text-white transition-all">
+                                            <span class="material-symbols-outlined !text-sm">check</span>
+                                        </button>
+                                        <button
+                                            class="size-8 flex items-center justify-center rounded-lg bg-red-100 text-red-600 hover:bg-red-600 hover:text-white transition-all">
+                                            <span class="material-symbols-outlined !text-sm">close</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between group">
+                                    <div class="flex items-center gap-3">
+                                        <div class="size-10 rounded-full bg-cover bg-center"
+                                            data-alt="Volunteer candidate avatar"
+                                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAZzypeLICyBZO_GVB0sBnjczdETrixf86VlgTzd0fHSj8GZavtuoB2H2gXJej0ovlqXgkxvzf47aXGqod85RlyK8h9iUUKArNbCboCKFZqzGhSHpDvvJbsmbkf1gWdekoYaf3RNtqk5Z1atDHIKXivs9xwLbv6Y-vdEIDukeztoO0mcRazsXlIwdiEkOmkK8hRd61hFAW25bcEZSrbsVWJ0zSdoxdVaOYvY3cp1xCsj8uwKbKCejdLxawMmybsHh0eYQaiwTWXW0w')">
+                                        </div>
+                                        <div>
+                                            <p class="text-sm font-bold">Sadia Jannat Mitu</p>
+                                            <p class="text-[10px] text-slate-500">Kishorgonj • Teacher</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-1">
+                                        <button
+                                            class="size-8 flex items-center justify-center rounded-lg bg-secondary/10 text-secondary hover:bg-secondary hover:text-white transition-all">
+                                            <span class="material-symbols-outlined !text-sm">check</span>
+                                        </button>
+                                        <button
+                                            class="size-8 flex items-center justify-center rounded-lg bg-red-100 text-red-600 hover:bg-red-600 hover:text-white transition-all">
+                                            <span class="material-symbols-outlined !text-sm">close</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <button
+                                class="w-full mt-6 py-2 border border-slate-200 dark:border-slate-800 rounded-lg text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                                View All 45 Applications
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Recent Activity/Donations Feed -->
+                <div
+                    class="bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm">
+                    <div class="p-6 border-b border-slate-100 dark:border-slate-800">
+                        <h3 class="text-lg font-bold">Recent Donations</h3>
+                    </div>
+                    <div class="p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div
+                            class="flex items-center gap-4 p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-transparent hover:border-primary/20 transition-all cursor-pointer">
+                            <div
+                                class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">
+                                KS</div>
+                            <div class="flex-1">
+                                <p class="text-sm font-bold">Karim Sheikh</p>
+                                <p class="text-xs text-slate-500 font-medium">৳5,000 to Flood Relief</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-xs font-bold text-slate-400 uppercase">2m ago</p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center gap-4 p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-transparent hover:border-primary/20 transition-all cursor-pointer">
+                            <div
+                                class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">
+                                AH</div>
+                            <div class="flex-1">
+                                <p class="text-sm font-bold">Anisul Haque</p>
+                                <p class="text-xs text-slate-500 font-medium">৳12,000 to School Fund</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-xs font-bold text-slate-400 uppercase">15m ago</p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center gap-4 p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-transparent hover:border-primary/20 transition-all cursor-pointer">
+                            <div
+                                class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">
+                                TM</div>
+                            <div class="flex-1">
+                                <p class="text-sm font-bold">Tasnim Maria</p>
+                                <p class="text-xs text-slate-500 font-medium">৳1,500 to Winter Clothing</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-xs font-bold text-slate-400 uppercase">1h ago</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <button
+                            class="w-full py-3 bg-slate-100 dark:bg-slate-800 rounded-xl text-primary font-bold text-sm hover:bg-primary hover:text-white transition-all">
+                            Show More Transactions
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

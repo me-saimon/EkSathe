@@ -1,7 +1,8 @@
 <?php
-namespace app\Models;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class Campaign extends Model
 {

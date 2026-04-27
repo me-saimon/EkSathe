@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>ImpactFlow | Institutional-Grade Crowdfunding</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#515f74",
+                        "background": "#f7f9fb",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#eceef0",
+                        "outline": "#6c7a71",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "tertiary": "#855300",
+                        "on-secondary-fixed-variant": "#3a485b",
+                        "tertiary-container": "#e29100",
+                        "surface-container-high": "#e6e8ea",
+                        "on-primary-fixed-variant": "#005236",
+                        "surface-bright": "#f7f9fb",
+                        "surface-variant": "#e0e3e5",
+                        "on-background": "#191c1e",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "primary": "#006c49",
+                        "primary-fixed-dim": "#4edea3",
+                        "on-primary-fixed": "#002113",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#d5e3fc",
+                        "surface": "#f7f9fb",
+                        "surface-dim": "#d8dadc",
+                        "surface-tint": "#006c49",
+                        "primary-container": "#10b981",
+                        "on-primary-container": "#00422b",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#3c4a42",
+                        "on-tertiary-container": "#523200",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#d5e3fc",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#bbcabf",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#eff1f3",
+                        "error": "#ba1a1a",
+                        "on-surface": "#191c1e",
+                        "on-tertiary-fixed": "#2a1700",
+                        "on-secondary-container": "#57657a",
+                        "surface-container-low": "#f2f4f6",
+                        "primary-fixed": "#6ffbbe",
+                        "secondary-fixed-dim": "#b9c7df",
+                        "inverse-primary": "#4edea3",
+                        "tertiary-fixed": "#ffddb8",
+                        "surface-container-highest": "#e0e3e5",
+                        "inverse-surface": "#2d3133",
+                        "on-secondary-fixed": "#0d1c2e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "80px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "sm": "16px",
+                        "lg": "48px",
+                        "md": "24px",
+                        "base": "4px",
+                        "xs": "8px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-bold": ["Inter"],
+                        "headline-md": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "body-lg": ["Inter"],
+                        "headline-xl": ["Manrope"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", { "lineHeight": "1", "letterSpacing": "0", "fontWeight": "500" }],
+                        "body-sm": ["14px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+                        "label-bold": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+                        "headline-xl": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0px 10px 30px rgba(71, 85, 105, 0.05);
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-surface-container-lowest text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container">
+    <!-- Top Navigation Bar -->
+    <nav
+        class="fixed top-0 w-full z-50 border-b border-white/40 dark:border-slate-800/40 bg-white/70 backdrop-blur-xl shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-12">
+                <span class="text-xl font-extrabold tracking-tighter text-emerald-600">ImpactFlow</span>
+                <div class="hidden md:flex gap-8 items-center">
+                    <a class="font-['Manrope'] text-sm font-medium tracking-tight text-emerald-600 border-b-2 border-emerald-600 pb-1"
+                        href="#">Explore</a>
+                    <a class="font-['Manrope'] text-sm font-medium tracking-tight text-slate-600 hover:text-emerald-500 transition-opacity duration-200"
+                        href="#">How it Works</a>
+                    <a class="font-['Manrope'] text-sm font-medium tracking-tight text-slate-600 hover:text-emerald-500 transition-opacity duration-200"
+                        href="#">Trust &amp; Safety</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <button
+                    class="hidden lg:block font-['Manrope'] text-sm font-medium tracking-tight text-slate-600 hover:text-emerald-500 active:scale-95 transition-transform px-4 py-2">Sign
+                    In</button>
+                <button
+                    class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-full font-['Manrope'] text-sm font-bold tracking-tight shadow-sm hover:opacity-80 active:scale-95 transition-all">Start
+                    a Campaign</button>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+            <div class="z-10">
+                <span
+                    class="inline-flex items-center gap-2 px-3 py-1 bg-primary-container/10 text-primary font-label-bold text-label-bold rounded-full mb-6">
+                    <span class="material-symbols-outlined text-[16px]">verified_user</span>
+                    INSTITUTIONAL-GRADE TRUST
+                </span>
+                <h1 class="font-headline-xl text-headline-xl text-on-surface mb-6 max-w-xl">
+                    Empower Change, One Story at a Time
+                </h1>
+                <p class="font-body-lg text-body-lg text-secondary mb-10 max-w-lg">
+                    Access high-impact crowdfunding projects backed by rigorous verification. Join a global community of
+                    investors driving sustainable growth.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <button
+                        class="px-8 py-4 bg-primary-container text-on-primary-container font-label-md text-label-md rounded-xl shadow-lg hover:shadow-xl active:scale-95 transition-all flex items-center gap-2">
+                        Explore Campaigns
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </button>
+                    <button
+                        class="px-8 py-4 border-2 border-outline-variant text-on-surface font-label-md text-label-md rounded-xl hover:bg-surface-container-low active:scale-95 transition-all">
+                        How it Works
+                    </button>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="absolute -top-12 -right-12 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+                <div class="absolute -bottom-12 -left-12 w-48 h-48 bg-tertiary-container/10 rounded-full blur-2xl">
+                </div>
+                <img alt="Wide shot of local community members working together in a sunlit organic garden"
+                    class="w-full h-[500px] object-cover rounded-3xl shadow-2xl relative z-10"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAV5D9snXE9V34w-y_kSxSfMdFkF11jtR-9-MihMOoC5cGi8QWQ1dY4VckA2Uuq3l0DdKetfnZOJy-CdCfN7gAc048rMvdoeCq_GDbZG-QityO2n4kHOQFrt_CzxJwdH8BV6D26iyTnTY-Q2a4oP7F3xjx0-8agqAtf9fzWvrEAIL1i34SO6dEPF19xem0kGkgMIGl9wpygL6jFXla05OJWCtxep0pMRHO6VWskKDHyqqZih9xwlAfEzZMceQuYdpX4pAxTQnJ-Qg7" />
+            </div>
+        </div>
+    </header>
+    <!-- Statistics Section (Bento Style) -->
+    <section class="py-xl bg-surface-container-low">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+                <div class="glass-card p-md rounded-xl flex flex-col items-center text-center">
+                    <span class="text-headline-lg font-headline-lg text-primary mb-2">$42M+</span>
+                    <span class="text-label-md font-label-md text-secondary">Total Funds Raised</span>
+                </div>
+                <div class="glass-card p-md rounded-xl flex flex-col items-center text-center">
+                    <span class="text-headline-lg font-headline-lg text-primary mb-2">1,240</span>
+                    <span class="text-label-md font-label-md text-secondary">Verified Projects</span>
+                </div>
+                <div class="glass-card p-md rounded-xl flex flex-col items-center text-center">
+                    <span class="text-headline-lg font-headline-lg text-primary mb-2">185k</span>
+                    <span class="text-label-md font-label-md text-secondary">Global Backers</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Campaign Grid -->
+    <section class="py-xl">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg mb-2">Featured Campaigns</h2>
+                    <p class="text-secondary max-w-md">Discover initiatives making a real-world difference today.</p>
+                </div>
+                <button
+                    class="flex items-center gap-2 text-primary font-label-md hover:translate-x-1 transition-transform">
+                    View All
+                    <span class="material-symbols-outlined">chevron_right</span>
+                </button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Campaign Card 1 -->
+                <div
+                    class="glass-card rounded-3xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 border border-white/50">
+                    <div class="relative h-56 overflow-hidden">
+                        <img alt="Disaster relief hands"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBg75xIcb744ItA9wgeR5cwA0rWr9TA0Ya6ixDsKCr2wzKKd9Xme5peH1ptuIZA6XO2rl4N99CiOkGRVzMHNSfGj26KYQfwvGTym96LEdT_IoLcT3jrwj33pg5VHfOfYdH1boVRtBvKVSbKHHIrb4AxBf1jTZOdDUSOHlSk3m6cVJKdfjAkzFvh8lRebbd2F5ndPpH9Q8cSos2RgQ6gqRHqw7f4ycRSrLoupb8gxZc54bLILK2H2yGTx_YpGxe7WbRJt88Xo2XFmGTd" />
+                        <div class="absolute top-4 left-4">
+                            <span
+                                class="px-3 py-1 bg-white/80 backdrop-blur-md text-secondary text-[10px] font-bold uppercase tracking-wider rounded-full shadow-sm">Disaster
+                                Response</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span
+                                class="px-3 py-1 bg-amber-500 text-white text-[10px] font-bold uppercase tracking-wider rounded-full shadow-lg">Volunteer
+                                Needed</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-headline-md text-headline-md mb-2 group-hover:text-primary transition-colors">
+                            Global Relief: Cyclone Unity</h3>
+                        <p class="text-body-sm text-secondary mb-6 line-clamp-2">Providing immediate shelter and medical
+                            supplies to 5,000 families displaced by recent coastal storms.</p>
+                        <div class="mb-4">
+                            <div class="flex justify-between items-end mb-2">
+                                <span class="text-sm font-bold text-on-surface">$7,500 <span
+                                        class="text-secondary font-normal">raised</span></span>
+                                <span class="text-sm font-bold text-primary">75%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                                <div class="h-full bg-emerald-500 transition-all duration-1000" style="width: 75%">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 py-4 border-t border-slate-100/50 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <img alt="avatar" class="w-8 h-8 rounded-full border border-white"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcoGo3QKeOWXntPcKlpuKyWt1amx4ddbQLhfMN5Vx88BuTmewvbzBm5_60-Hgx6OILbcYItYKEXB9S93AQdCOE1STlx9liGMWfY82qTIvCtmiIzSG1ZE5yrwvsH9RXnoPK6gLri581PopBOUmVlsJY5oQYniulxZw30O3Z8CrtYiViBkHf7R9hU0IrVe3DHqKwlj29X5aBAcW_9cNIvHJt-nS7jwcvxw9X2qbBLK_cmUQ9WYzAziffGGbs2Tir20nq0IivnvMy1XEc" />
+                            <span class="text-xs font-semibold text-secondary">Red Cross</span>
+                        </div>
+                        <a class="text-primary text-xs font-bold hover:underline flex items-center gap-1" href="#">
+                            View Details
+                            <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- Campaign Card 2 -->
+                <div
+                    class="glass-card rounded-3xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 border border-white/50">
+                    <div class="relative h-56 overflow-hidden">
+                        <img alt="Winter relief"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_eM1ASV9cW200t0k6KN_7ftk6Rtd29PRxMvQpJg2t1knUpiJW3bXsrwh8HNkK_zfwzmgUmcROYwLFeoQFg0moEj4FZMnJP4pBWFkzFNkg-Bl65o2bb67pT_Hjrib6clx5TcMxmep8JbTioiemW14RQmwldkMQne5GEhljTQi3b70MikZEXrtlEvvveNwX3HFLNidN6D1RSP4v1FGeNG8b-MlIOlDwatobzkjYKMLpmuZrLwFdR3rbpU_FGiMe4YOSUF3JBsU8mRAf" />
+                        <div class="absolute top-4 left-4">
+                            <span
+                                class="px-3 py-1 bg-white/80 backdrop-blur-md text-secondary text-[10px] font-bold uppercase tracking-wider rounded-full shadow-sm">Winter
+                                Relief</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span
+                                class="px-3 py-1 bg-amber-500 text-white text-[10px] font-bold uppercase tracking-wider rounded-full shadow-lg">Volunteer
+                                Needed</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-headline-md text-headline-md mb-2 group-hover:text-primary transition-colors">
+                            Warm Hearts Initiative</h3>
+                        <p class="text-body-sm text-secondary mb-6 line-clamp-2">Equipping rural schools with
+                            sustainable heating and warm clothing for the upcoming harsh winter season.</p>
+                        <div class="mb-4">
+                            <div class="flex justify-between items-end mb-2">
+                                <span class="text-sm font-bold text-on-surface">$3,200 <span
+                                        class="text-secondary font-normal">raised</span></span>
+                                <span class="text-sm font-bold text-primary">32%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                                <div class="h-full bg-emerald-500 transition-all duration-1000" style="width: 32%">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 py-4 border-t border-slate-100/50 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <img alt="avatar" class="w-8 h-8 rounded-full border border-white"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkHpP83y2fAlIZdhSYIzl-IwI5gqq7Rqp_3zBffjx5LaY61b1_9dLurTlQzjohz5vqL8dj5DQ_bj3sOSHSx529cAV-w4aaqY7xR2_j0fK1MvkgkGZd7DgOf0om4g-0rGVsDrZFqDEpj2iUjxhQGJBmWbV73-fR-k-W_7aAhdJBm1lHlEUIo0BEw0dboD_ezGYWUJ8PMucSzVwCpF8jNBNTUZoUrTBWLTeWQ1wT31ETsFVzbio4RYXsobQldotU9k-xiL8eXQ04eadK" />
+                            <span class="text-xs font-semibold text-secondary">Local Aid</span>
+                        </div>
+                        <a class="text-primary text-xs font-bold hover:underline flex items-center gap-1" href="#">
+                            View Details
+                            <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- Campaign Card 3 -->
+                <div
+                    class="glass-card rounded-3xl overflow-hidden group hover:-translate-y-2 transition-all duration-300 border border-white/50">
+                    <div class="relative h-56 overflow-hidden">
+                        <img alt="Sustainability project"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlwbuqWx1vgwOxALkwEVzh5X7v5EZVuVuojG94NQ-fP6wuIlB8ROh9xbutJGUK_fVFdyARYxQOFTR5RFtCoTEZ3l7yF4VeaXU17byb5ykjV07lD7iXEqFIhb78nDmnDS4QyIJKeqO6B4NR74sgat_e5_p-7ZttOe-p-spZyG25Do37AGUbbHHlWAOgv-1NWmp0U8WVAAnITliHbERY4vglniPplB8THR-F5yVZ-u4doFXkCHuM6VqUo1NzeQN1SnaH_K7vLwMhtfZQ" />
+                        <div class="absolute top-4 left-4">
+                            <span
+                                class="px-3 py-1 bg-white/80 backdrop-blur-md text-secondary text-[10px] font-bold uppercase tracking-wider rounded-full shadow-sm">Sustainability</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span
+                                class="px-3 py-1 bg-amber-500 text-white text-[10px] font-bold uppercase tracking-wider rounded-full shadow-lg">Volunteer
+                                Needed</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-headline-md text-headline-md mb-2 group-hover:text-primary transition-colors">
+                            Project Green Peaks</h3>
+                        <p class="text-body-sm text-secondary mb-6 line-clamp-2">Reforesting 100 hectares of critical
+                            wildlife corridors to restore biodiversity and fight local climate change.</p>
+                        <div class="mb-4">
+                            <div class="flex justify-between items-end mb-2">
+                                <span class="text-sm font-bold text-on-surface">$12,800 <span
+                                        class="text-secondary font-normal">raised</span></span>
+                                <span class="text-sm font-bold text-primary">85%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                                <div class="h-full bg-emerald-500 transition-all duration-1000" style="width: 85%">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 py-4 border-t border-slate-100/50 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <img alt="avatar" class="w-8 h-8 rounded-full border border-white"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCY50OmlOAS3iakyn1hqPaC6n5DuHc7ea9cVzvaIc7ZPkNaG8IPXf_vyfdDX16SoW4kavkSK6c7n9Nx-tGfzfvr0y1fw_7jqISSWmimYlsoCsRd99iuWrmLxcPMB1-aESo-_57ThKd68PnIjrGnfR27q9UgPKZgesq1i_AoLq3BEjdWHbDvJsGQenmCqe_zKDTN7RAFxkxwPnSHWu3Q5M4WB0laR-WzJ91NDE58k_mJuVDnbbQwI2-vsFFB-p1jk9AvSbfEnv7PBGCO" />
+                            <span class="text-xs font-semibold text-secondary">GreenWorld</span>
+                        </div>
+                        <a class="text-primary text-xs font-bold hover:underline flex items-center gap-1" href="#">
+                            View Details
+                            <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Trust/Transparency Section -->
+    <section class="py-24 bg-[#f1f3f5]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg mb-8 tracking-tight">Transparency Built Into Every
+                        Transaction</h2>
+                    <p class="text-body-lg text-secondary mb-12 leading-relaxed">
+                        ImpactFlow isn't just a platform; it's a commitment to security. We bridge the gap between
+                        radical compassion and institutional-grade reliability with tools designed for total
+                        accountability.
+                    </p>
+                    <div class="space-y-10">
+                        <div class="flex gap-6 items-start group">
+                            <div
+                                class="w-14 h-14 rounded-2xl bg-white shadow-sm border border-slate-200 flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:border-primary transition-all duration-300">
+                                <span
+                                    class="material-symbols-outlined text-primary group-hover:text-white text-3xl">videocam</span>
+                            </div>
+                            <div>
+                                <h4 class="font-headline-md text-xl font-bold mb-2">Live Video Updates</h4>
+                                <p class="text-body-md text-secondary leading-snug">Real-time visual confirmation of
+                                    project milestones being met on the ground.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6 items-start group">
+                            <div
+                                class="w-14 h-14 rounded-2xl bg-white shadow-sm border border-slate-200 flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:border-primary transition-all duration-300">
+                                <span
+                                    class="material-symbols-outlined text-primary group-hover:text-white text-3xl">badge</span>
+                            </div>
+                            <div>
+                                <h4 class="font-headline-md text-xl font-bold mb-2">Verified Creators</h4>
+                                <p class="text-body-md text-secondary leading-snug">Multi-step identity and history
+                                    verification for every campaign manager.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6 items-start group">
+                            <div
+                                class="w-14 h-14 rounded-2xl bg-white shadow-sm border border-slate-200 flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:border-primary transition-all duration-300">
+                                <span
+                                    class="material-symbols-outlined text-primary group-hover:text-white text-3xl">radar</span>
+                            </div>
+                            <div>
+                                <h4 class="font-headline-md text-xl font-bold mb-2">Direct Impact Tracking</h4>
+                                <p class="text-body-md text-secondary leading-snug">Transparent data feeds that map
+                                    every dollar directly to its final outcome.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="bg-white p-12 rounded-[2rem] shadow-2xl border border-slate-100 relative z-10">
+                        <div class="space-y-8">
+                            <div class="flex items-center gap-4 pb-6 border-b border-slate-50">
+                                <div
+                                    class="w-10 h-10 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-xl">shield_locked</span>
+                                </div>
+                                <span class="font-bold text-lg">Platform Compliance</span>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <span class="material-symbols-outlined text-emerald-500 font-bold">check_circle</span>
+                                <span class="font-medium text-on-surface">ISO 27001 Certified Infrastructure</span>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <span class="material-symbols-outlined text-emerald-500 font-bold">check_circle</span>
+                                <span class="font-medium text-on-surface">99.9% Successful Project Completion</span>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <span class="material-symbols-outlined text-emerald-500 font-bold">check_circle</span>
+                                <span class="font-medium text-on-surface">Zero-tolerance Fraud Detection System</span>
+                            </div>
+                            <div class="mt-8 pt-8 border-t border-slate-50 flex justify-center">
+                                <img alt="Certification Logo" class="h-8 opacity-20 grayscale grayscale-100"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4K9N8xE_vROZ9O3MJIgr5JvndpesTQrnYCwY6KccjWpciG9a0QCVr77uz5m4dNoMmnrRW0KgFg3E5HfjwQF5kzN8lRLLRPO1o1VKF02b0W-KRJkHsYiBJ4wZ_0IuhUA8hwHBz-sQME_yg6asrt01YWA2-b6A4_iQg5Ug9RMCPJS1zLbWjMp0c9H9oXkrOz7ny6n6HeB_pJUez4inGfuQnFasePGs_U_dncvrWXf6BDMrVbip_Hi52VvlxyHy2CIMqXUceBwEm6Gog" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -top-10 -right-10 w-64 h-64 bg-emerald-100/50 rounded-full blur-3xl"></div>
+                    <div class="absolute -bottom-10 -left-10 w-64 h-64 bg-slate-200/50 rounded-full blur-3xl"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="w-full border-t border-slate-200 bg-white">
+        <div class="max-w-7xl mx-auto px-6 py-16">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
+                <div class="flex flex-col items-start max-w-sm">
+                    <span class="text-2xl font-extrabold tracking-tighter text-emerald-600 mb-4">ImpactFlow</span>
+                    <p class="text-sm text-secondary leading-relaxed">
+                        Institutional-grade crowdfunding for global impact. Secured by advanced escrow systems and
+                        multi-layered verification.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-12">
+                    <div class="flex flex-col gap-4">
+                        <span class="font-bold text-xs uppercase tracking-widest text-slate-400">Platform</span>
+                        <a class="text-sm text-secondary hover:text-emerald-600 transition-colors" href="#">Explore</a>
+                        <a class="text-sm text-secondary hover:text-emerald-600 transition-colors" href="#">How it
+                            Works</a>
+                        <a class="text-sm text-secondary hover:text-emerald-600 transition-colors" href="#">Pricing</a>
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <span class="font-bold text-xs uppercase tracking-widest text-slate-400">Trust</span>
+                        <a class="text-sm text-secondary hover:text-emerald-600 transition-colors" href="#">Security</a>
+                        <a class="text-sm text-secondary hover:text-emerald-600 transition-colors"
+                            href="#">Verification</a>
+                        <a class="text-sm text-secondary hover:text-emerald-600 transition-colors" href="#">Privacy</a>
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <span class="font-bold text-xs uppercase tracking-widest text-slate-400">Connect</span>
+                        <a class="text-sm text-secondary hover:text-emerald-600 transition-colors" href="#">Twitter</a>
+                        <a class="text-sm text-secondary hover:text-emerald-600 transition-colors" href="#">LinkedIn</a>
+                        <a class="text-sm text-secondary hover:text-emerald-600 transition-colors" href="#">Support</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-slate-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-xs text-slate-400">© 2024 ImpactFlow Inc. All rights reserved. Empowering change through
+                    trust.</p>
+                <div class="flex gap-6">
+                    <span
+                        class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-primary transition-colors text-[20px]">public</span>
+                    <span
+                        class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-primary transition-colors text-[20px]">verified</span>
+                    <span
+                        class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-primary transition-colors text-[20px]">shield_with_heart</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

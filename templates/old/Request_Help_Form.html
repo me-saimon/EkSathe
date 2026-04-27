@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Request Help - EkSathe</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#1e398a",
+            "success": "#16a34a",
+            "background-light": "#f6f6f8",
+            "background-dark": "#121620",
+          },
+          fontFamily: {
+            "display": ["Inter"]
+          },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .step-active {
+      color: #1e398a;
+      border-color: #1e398a;
+    }
+
+    .step-inactive {
+      color: #94a3b8;
+      border-color: #e2e8f0;
+    }
+  </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+  <!-- Top Navigation Bar -->
+  <header class="sticky top-0 z-50 w-full bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center gap-2">
+          <div class="text-primary">
+            <svg class="size-8" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M24 45.8096C19.6865 45.8096 15.4698 44.5305 11.8832 42.134C8.29667 39.7376 5.50128 36.3314 3.85056 32.3462C2.19985 28.361 1.76794 23.9758 2.60947 19.7452C3.451 15.5145 5.52816 11.6284 8.57829 8.5783C11.6284 5.52817 15.5145 3.45101 19.7452 2.60948C23.9758 1.76795 28.361 2.19986 32.3462 3.85057C36.3314 5.50129 39.7376 8.29668 42.134 11.8833C44.5305 15.4698 45.8096 19.6865 45.8096 24L24 24L24 45.8096Z"
+                fill="currentColor"></path>
+            </svg>
+          </div>
+          <span class="text-xl font-bold tracking-tight text-primary">EkSathe</span>
+        </div>
+        <nav class="hidden md:flex space-x-8">
+          <a class="text-sm font-medium hover:text-primary transition-colors" href="#">Home</a>
+          <a class="text-sm font-medium hover:text-primary transition-colors" href="#">Donate</a>
+          <a class="text-sm font-medium hover:text-primary transition-colors" href="#">Volunteers</a>
+          <a class="text-sm font-medium hover:text-primary transition-colors" href="#">About</a>
+        </nav>
+        <div class="flex items-center gap-4">
+          <button
+            class="bg-primary text-white px-5 py-2 rounded-lg text-sm font-semibold hover:bg-blue-800 transition-all">Profile</button>
+          <div class="size-10 rounded-full bg-slate-200 overflow-hidden border border-slate-300">
+            <img alt="User profile" data-alt="Close up portrait of a smiling professional man"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPL1etiK3HYOihKZEV-0V2_JafGQWmtYEgyZu5bFcakzX18yaKWAh0pZeL6V7LxENEl8g6nSAgijBEsdEGGdWqYscJVdZVcQ3V9lqJVGleNKA3TIe8yxsMrImkd21Z01kZIuLskDhjKpIuwYKmrlIxVFtWPBlPFKtfH_49kidNtg6do-QarXjDvH95EZ5eNfLW8guJvLOirXKBttvSCSrEDXwrIMyPz7RpMnSqY8Ztg_xfjYIAy3uydAjPO2mKfbkH9GBVbEpYZbI" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <!-- Progress Stepper -->
+    <div class="mb-12">
+      <div class="flex items-center justify-between max-w-4xl mx-auto">
+        <div class="flex flex-col items-center gap-2 flex-1">
+          <div
+            class="size-10 rounded-full border-2 flex items-center justify-center font-bold step-active bg-primary/10">1
+          </div>
+          <span class="text-xs font-semibold text-primary">Basic Info</span>
+        </div>
+        <div class="h-0.5 bg-slate-200 flex-1 -mt-6"></div>
+        <div class="flex flex-col items-center gap-2 flex-1">
+          <div class="size-10 rounded-full border-2 flex items-center justify-center font-bold step-inactive">2</div>
+          <span class="text-xs font-semibold text-slate-500">Help Details</span>
+        </div>
+        <div class="h-0.5 bg-slate-200 flex-1 -mt-6"></div>
+        <div class="flex flex-col items-center gap-2 flex-1">
+          <div class="size-10 rounded-full border-2 flex items-center justify-center font-bold step-inactive">3</div>
+          <span class="text-xs font-semibold text-slate-500">Verification</span>
+        </div>
+        <div class="h-0.5 bg-slate-200 flex-1 -mt-6"></div>
+        <div class="flex flex-col items-center gap-2 flex-1">
+          <div class="size-10 rounded-full border-2 flex items-center justify-center font-bold step-inactive">4</div>
+          <span class="text-xs font-semibold text-slate-500">Review</span>
+        </div>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <!-- Main Form Section -->
+      <div class="lg:col-span-2 space-y-8">
+        <section
+          class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 p-8">
+          <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary">person</span>
+            Personal Information
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Full Name</label>
+              <input
+                class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-primary focus:border-primary"
+                placeholder="Enter your legal name" type="text" />
+            </div>
+            <div class="space-y-2">
+              <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Phone Number</label>
+              <input
+                class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-primary focus:border-primary"
+                placeholder="+880 1XXX-XXXXXX" type="tel" />
+            </div>
+            <div class="space-y-2 md:col-span-2">
+              <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">NID / Identification
+                Number</label>
+              <div class="relative">
+                <input
+                  class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-primary focus:border-primary pr-10"
+                  placeholder="Enter 10 or 17 digit NID" type="text" />
+                <span
+                  class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">info</span>
+              </div>
+              <p class="text-xs text-slate-500 mt-1 italic">This will be used for private verification only.</p>
+            </div>
+          </div>
+        </section>
+        <section
+          class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 p-8">
+          <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary">volunteer_activism</span>
+            Help Request Details
+          </h2>
+          <div class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Category</label>
+                <select
+                  class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-primary focus:border-primary">
+                  <option>Medical Emergency</option>
+                  <option>Education / School Fees</option>
+                  <option>Food Relief</option>
+                  <option>Shelter / Housing</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="space-y-2">
+                <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Urgency Level</label>
+                <div
+                  class="flex items-center gap-4 h-11 px-2 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50 dark:bg-slate-800/50">
+                  <label class="flex items-center gap-2 cursor-pointer">
+                    <input checked="" class="text-primary focus:ring-primary" name="priority" type="radio" />
+                    <span class="text-sm">Normal</span>
+                  </label>
+                  <label class="flex items-center gap-2 cursor-pointer">
+                    <input class="text-red-600 focus:ring-red-600" name="priority" type="radio" />
+                    <span class="text-sm font-bold text-red-600">Urgent</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="space-y-2">
+              <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Title of Request</label>
+              <input
+                class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-primary focus:border-primary"
+                placeholder="Short, clear title (e.g., Surgery for Heart Patient)" type="text" />
+            </div>
+            <div class="space-y-2">
+              <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Detailed Description</label>
+              <textarea
+                class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-primary focus:border-primary"
+                placeholder="Explain the situation in detail..." rows="4"></textarea>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div class="space-y-2">
+                <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Financial Goal (BDT)</label>
+                <div class="relative">
+                  <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 font-bold">৳</span>
+                  <input
+                    class="w-full pl-8 rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-primary focus:border-primary font-mono"
+                    placeholder="0.00" type="number" />
+                </div>
+              </div>
+              <div class="space-y-2">
+                <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Division</label>
+                <select
+                  class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-primary focus:border-primary">
+                  <option>Dhaka</option>
+                  <option>Chattogram</option>
+                  <option>Rajshahi</option>
+                  <option>Sylhet</option>
+                </select>
+              </div>
+              <div class="space-y-2">
+                <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">District</label>
+                <select
+                  class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:ring-primary focus:border-primary">
+                  <option>Dhaka City</option>
+                  <option>Gazipur</option>
+                  <option>Narayanganj</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 p-8">
+          <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary">cloud_upload</span>
+            Evidence &amp; Verification
+          </h2>
+          <div
+            class="border-2 border-dashed border-slate-200 dark:border-slate-700 rounded-xl p-10 flex flex-col items-center justify-center text-center group hover:border-primary transition-colors cursor-pointer bg-slate-50/50 dark:bg-slate-800/30">
+            <div
+              class="size-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 text-primary group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-3xl">upload_file</span>
+            </div>
+            <p class="font-bold text-lg mb-1">Click to upload or drag and drop</p>
+            <p class="text-slate-500 text-sm max-w-xs">Upload medical reports, bills, or ID documents (PNG, JPG or PDF
+              up to 10MB)</p>
+            <input class="hidden" type="file" />
+          </div>
+          <!-- File Preview Item (Placeholder) -->
+          <div
+            class="mt-6 flex items-center gap-4 p-3 border border-slate-100 dark:border-slate-800 rounded-lg bg-white dark:bg-slate-800">
+            <div class="size-10 bg-red-100 text-red-600 flex items-center justify-center rounded">
+              <span class="material-symbols-outlined">picture_as_pdf</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-sm font-medium truncate">medical_report_2023.pdf</p>
+              <p class="text-xs text-slate-500">1.2 MB • Uploaded</p>
+            </div>
+            <button class="text-slate-400 hover:text-red-500">
+              <span class="material-symbols-outlined">delete</span>
+            </button>
+          </div>
+        </section>
+        <!-- Navigation Buttons -->
+        <div class="flex items-center justify-between pt-4">
+          <button
+            class="flex items-center gap-2 px-6 py-3 border border-slate-300 dark:border-slate-700 rounded-lg font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+            <span class="material-symbols-outlined">arrow_back</span>
+            Back
+          </button>
+          <button
+            class="flex items-center gap-2 px-10 py-3 bg-primary text-white rounded-lg font-bold hover:bg-blue-800 transition-all shadow-lg shadow-primary/20">
+            Next Step
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </button>
+        </div>
+      </div>
+      <!-- Sidebar -->
+      <aside class="space-y-6">
+        <!-- Trust Box -->
+        <div class="bg-primary text-white rounded-xl p-6 shadow-xl sticky top-24">
+          <h3 class="text-lg font-bold mb-4 flex items-center gap-2">
+            <span class="material-symbols-outlined">verified_user</span>
+            How Verification Works
+          </h3>
+          <div class="space-y-6">
+            <div class="flex gap-4">
+              <div class="size-8 rounded-full bg-white/20 flex items-center justify-center shrink-0 font-bold text-xs">
+                01</div>
+              <div>
+                <p class="font-bold text-sm">Submit Application</p>
+                <p class="text-xs text-blue-100 mt-1">Provide accurate details and valid evidence documents.</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="size-8 rounded-full bg-white/20 flex items-center justify-center shrink-0 font-bold text-xs">
+                02</div>
+              <div>
+                <p class="font-bold text-sm">Human Review</p>
+                <p class="text-xs text-blue-100 mt-1">Our team verifies your identity and cross-checks provided
+                  documents within 48 hours.</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="size-8 rounded-full bg-white/20 flex items-center justify-center shrink-0 font-bold text-xs">
+                03</div>
+              <div>
+                <p class="font-bold text-sm">Campaign Launch</p>
+                <p class="text-xs text-blue-100 mt-1">Once approved, your request goes live for thousands of donors to
+                  see.</p>
+              </div>
+            </div>
+          </div>
+          <div class="mt-8 pt-6 border-t border-white/10">
+            <p class="text-xs text-blue-100 italic">"Trust is our foundation. 100% of verified cases on EkSathe receive
+              attention from our donor network."</p>
+          </div>
+        </div>
+        <!-- Support Callout -->
+        <div class="bg-slate-100 dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700">
+          <h4 class="font-bold mb-2">Need Help?</h4>
+          <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">If you're having trouble filling out the form, our
+            support team is available 24/7.</p>
+          <a class="text-primary font-bold text-sm flex items-center gap-1 hover:underline" href="#">
+            <span class="material-symbols-outlined text-base">support_agent</span>
+            Contact Support
+          </a>
+        </div>
+      </aside>
+    </div>
+  </main>
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-slate-400 py-16 mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        <div class="col-span-1 md:col-span-1">
+          <div class="flex items-center gap-2 text-white mb-6">
+            <div class="text-primary">
+              <svg class="size-8" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M24 45.8096C19.6865 45.8096 15.4698 44.5305 11.8832 42.134C8.29667 39.7376 5.50128 36.3314 3.85056 32.3462C2.19985 28.361 1.76794 23.9758 2.60947 19.7452C3.451 15.5145 5.52816 11.6284 8.57829 8.5783C11.6284 5.52817 15.5145 3.45101 19.7452 2.60948C23.9758 1.76795 28.361 2.19986 32.3462 3.85057C36.3314 5.50129 39.7376 8.29668 42.134 11.8833C44.5305 15.4698 45.8096 19.6865 45.8096 24L24 24L24 45.8096Z"
+                  fill="currentColor"></path>
+              </svg>
+            </div>
+            <span class="text-xl font-bold tracking-tight">EkSathe</span>
+          </div>
+          <p class="text-sm leading-relaxed">The most trusted crowdfunding platform in Bangladesh. Empowering people to
+            help people since 2018.</p>
+        </div>
+        <div>
+          <h5 class="text-white font-bold mb-6">Explore</h5>
+          <ul class="space-y-4 text-sm">
+            <li><a class="hover:text-primary" href="#">Medical Fundraisers</a></li>
+            <li><a class="hover:text-primary" href="#">Education Support</a></li>
+            <li><a class="hover:text-primary" href="#">Disaster Relief</a></li>
+            <li><a class="hover:text-primary" href="#">Monthly Giving</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-white font-bold mb-6">About Us</h5>
+          <ul class="space-y-4 text-sm">
+            <li><a class="hover:text-primary" href="#">Our Mission</a></li>
+            <li><a class="hover:text-primary" href="#">Success Stories</a></li>
+            <li><a class="hover:text-primary" href="#">Annual Reports</a></li>
+            <li><a class="hover:text-primary" href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-white font-bold mb-6">Contact</h5>
+          <ul class="space-y-4 text-sm">
+            <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary">mail</span>
+              info@charitybd.org</li>
+            <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary">call</span> +880
+              2-XXXXXXX</li>
+            <li class="flex items-center gap-3"><span class="material-symbols-outlined text-primary">location_on</span>
+              Dhaka, Bangladesh</li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-xs">© 2024 EkSathe Foundation. All rights reserved.</p>
+        <div class="flex gap-6">
+          <a class="hover:text-white transition-colors" href="#"><span
+              class="material-symbols-outlined">public</span></a>
+          <a class="hover:text-white transition-colors" href="#"><span
+              class="material-symbols-outlined">groups</span></a>
+          <a class="hover:text-white transition-colors" href="#"><span
+              class="material-symbols-outlined">share</span></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

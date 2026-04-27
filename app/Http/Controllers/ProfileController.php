@@ -24,18 +24,48 @@ class ProfileController extends Controller
     /**
      * Update the user's profile information.
      */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
-    {
-        $request->user()->fill($request->validated());
+    public function update(Request $request)
+{
+    $request->validate([
+        'full_name' => ['required', 'string', 'max:255'],
+        'phone' => ['nullable', 'string', 'max:20'],
+        'avatar' => ['nullable', 'image', 'mimes:jpg,jpeg,png', 'max:2048'],
+        'is_volunteer' => ['nullable', 'boolean'],
+    ]);
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
-        }
+    $user = $request->user();
 
-        $request->user()->save();
+    $user->full_name = $request->full_name;
+    $user->phone = $request->phone;
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+    // Handle Volunteer Toggle
+    $user->is_volunteer = $request->has('is_volunteer') ? 1 : 0;
+
+    // Handle Avatar Upload
+    if ($request->hasFile('avatar')) {
+        $path = $request->file('avatar')->store('avatars', 'public');
+        $user->avatar = $path;
     }
+
+    $user->save();
+
+    return redirect()->route('profile.edit')->with('status', 'profile-updated');
+}
+
+
+public function donations()
+{
+    $donations = Auth::user()->donations()
+        ->with('campaign')
+        ->latest()
+        ->paginate(10);
+
+    $totalDonated = Auth::user()->donations()->where('status', 'verified')->sum('amount');
+
+    return view('profile.donations', compact('donations', 'totalDonated'));
+}
+
+
 
     /**
      * Delete the user's account.

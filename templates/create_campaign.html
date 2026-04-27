@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Create Campaign | ImpactGrow</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#10b981",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed": "#0d1c2e",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface": "#f7f9fb",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#2a1700",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#006c49",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#3c4a42",
+                        "tertiary-fixed": "#ffddb8",
+                        "surface-container-low": "#f2f4f6",
+                        "on-surface": "#191c1e",
+                        "background": "#f7f9fb",
+                        "on-primary-fixed-variant": "#005236",
+                        "surface-dim": "#d8dadc",
+                        "secondary-fixed": "#d5e3fc",
+                        "on-secondary-fixed-variant": "#3a485b",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "primary-fixed-dim": "#4edea3",
+                        "on-tertiary-container": "#523200",
+                        "surface-variant": "#e0e3e5",
+                        "on-background": "#191c1e",
+                        "error": "#ba1a1a",
+                        "secondary": "#515f74",
+                        "tertiary": "#855300",
+                        "secondary-fixed-dim": "#b9c7df",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#e29100",
+                        "surface-tint": "#006c49",
+                        "surface-bright": "#f7f9fb",
+                        "inverse-primary": "#4edea3",
+                        "outline-variant": "#bbcabf",
+                        "on-primary-container": "#00422b",
+                        "inverse-surface": "#2d3133",
+                        "outline": "#6c7a71",
+                        "primary-fixed": "#6ffbbe",
+                        "on-secondary-container": "#57657a",
+                        "surface-container": "#eceef0",
+                        "surface-container-high": "#e6e8ea",
+                        "secondary-container": "#d5e3fc",
+                        "on-primary-fixed": "#002113"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "24px",
+                        "gutter": "24px",
+                        "base": "4px",
+                        "xs": "8px",
+                        "lg": "48px",
+                        "xl": "80px",
+                        "sm": "16px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-bold": ["Inter"],
+                        "headline-md": ["Manrope"],
+                        "headline-xl": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+                        "label-bold": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "600" }],
+                        "headline-xl": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "1", "letterSpacing": "0", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .emerald-glow:checked+.toggle-bg {
+            background-color: #10b981;
+            box-shadow: 0 0 12px rgba(16, 185, 129, 0.5);
+        }
+    </style>
+</head>
+
+<body class="bg-surface font-body-md text-on-surface antialiased">
+    <header
+        class="fixed top-0 w-full z-50 flex justify-between items-center px-8 h-16 max-w-[1280px] mx-auto bg-white/70 backdrop-blur-xl border-b border-white/40 left-0 right-0 shadow-[0px_10px_30px_rgba(71,85,105,0.08)]">
+        <div class="flex items-center gap-8">
+            <span class="text-xl font-black text-emerald-600 tracking-tight font-headline-md">ImpactGrow</span>
+            <nav class="hidden md:flex gap-6">
+                <a class="text-slate-600 font-medium hover:text-emerald-500 transition-colors duration-200 font-label-md"
+                    href="#">Explore</a>
+                <a class="text-slate-600 font-medium hover:text-emerald-500 transition-colors duration-200 font-label-md"
+                    href="#">Portfolio</a>
+                <a class="text-slate-600 font-medium hover:text-emerald-500 transition-colors duration-200 font-label-md"
+                    href="#">Impact</a>
+                <a class="text-slate-600 font-medium hover:text-emerald-500 transition-colors duration-200 font-label-md"
+                    href="#">Trust</a>
+            </nav>
+        </div>
+        <div class="flex items-center gap-4">
+            <button
+                class="bg-primary-container text-on-primary px-5 py-2 rounded-lg font-bold active:scale-95 transition-transform font-label-md">Create
+                Campaign</button>
+            <div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden">
+                <img alt="User profile" class="w-full h-full object-cover"
+                    data-alt="professional male headshot with a confident smile against a neutral blurred background"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWQVPqHuizKJbyFi-kZ7dBgaLvU_5fq5ab0t472EzlOM-RamfkTutVYXDyPv0NYobR1mqD0blN_O2fWphFYKqTBfONwxp21BylUuvTM1twprl_DRf9_JjBkp3d5XJF9mrJqmxKwhkqObpk3rN74o3NFmHI9l3sSpuc5hb0fHiDiFm08yCDxZDxLRB3DqJ8VC3dxXMoMkh5qAEb2Vs7ud6muJpP0SZ3W2gCbLeJyLzQIV1uG-U9r20i_GBZPPtw968Frt2sFW8cmuUh" />
+            </div>
+        </div>
+    </header>
+    <main class="pt-32 pb-xl px-8 max-w-[1280px] mx-auto">
+        <div class="mb-lg">
+            <h1 class="font-headline-xl text-on-surface mb-2">Launch Your Impact</h1>
+            <p class="text-body-lg text-on-surface-variant max-w-2xl">Create an institutional-grade campaign and connect
+                with a global community of purpose-driven investors.</p>
+        </div>
+        <form class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+            <!-- Left Column (Main Content) -->
+            <div class="lg:col-span-8 space-y-gutter">
+                <div class="glass-card rounded-xl p-md shadow-[0px_10px_30px_rgba(71,85,105,0.08)]">
+                    <div class="mb-md">
+                        <label
+                            class="block text-label-bold text-on-surface-variant mb-xs uppercase tracking-wider">Campaign
+                            Banner</label>
+                        <div
+                            class="relative w-full h-64 rounded-xl border-2 border-dashed border-outline-variant bg-surface-container-low flex flex-col items-center justify-center cursor-pointer hover:bg-surface-container transition-colors group overflow-hidden">
+                            <img class="absolute inset-0 w-full h-full object-cover opacity-10 group-hover:opacity-20 transition-opacity"
+                                data-alt="abstract architectural glass facade reflecting bright clear blue sky with modern minimalist vibes"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAw47WVh4xexWtSSZ78Btb6WIj7JidAWaSVFUMnS7c6jpnZzGcCd0ewwQvbQLfK-_XCpKOVzyUqdOir70eoW36oN9j8hBYbqXIPyJKFFu0-8E_3TRpDLNCCtPWP5_4kVZhAAAB5hqv1XkG1KKmmABfSmy88BQPq-MPWgoedTaof3xgZygEydEdyjEhLjdCDMeKUpA4GqSRKbVjV_CB1IeaZRaYzTMv7aykDnC57E8RgwhQSNjkOQJgwjRcAzcfx2fR4ZsMtjTBxWTXZ" />
+                            <span class="material-symbols-outlined text-4xl text-outline mb-2">cloud_upload</span>
+                            <span class="font-headline-md text-on-surface">Drag and drop banner image</span>
+                            <span class="text-body-sm text-on-surface-variant">Optimal size 1200 x 480px (Max
+                                5MB)</span>
+                        </div>
+                    </div>
+                    <div class="space-y-md">
+                        <div>
+                            <label
+                                class="block text-label-bold text-on-surface-variant mb-xs uppercase tracking-wider">Campaign
+                                Title</label>
+                            <input
+                                class="w-full bg-transparent border-b-2 border-surface-container-highest focus:border-primary-container outline-none py-2 text-headline-md font-headline-md transition-colors placeholder:text-surface-dim"
+                                placeholder="e.g. Sustainable Solar Hub for East Africa" type="text" />
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+                            <div>
+                                <label
+                                    class="block text-label-bold text-on-surface-variant mb-xs uppercase tracking-wider">Primary
+                                    Category</label>
+                                <select
+                                    class="w-full bg-transparent border-b-2 border-surface-container-highest focus:border-primary-container outline-none py-2 font-body-md transition-colors appearance-none">
+                                    <option>Select a category</option>
+                                    <option>Renewable Energy</option>
+                                    <option>Clean Water</option>
+                                    <option>Education</option>
+                                    <option>Healthcare</option>
+                                    <option>Conservation</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label
+                                    class="block text-label-bold text-on-surface-variant mb-xs uppercase tracking-wider">Live
+                                    Stream URL (Optional)</label>
+                                <div class="relative flex items-center">
+                                    <span
+                                        class="material-symbols-outlined absolute left-0 text-on-surface-variant">videocam</span>
+                                    <input
+                                        class="w-full bg-transparent border-b-2 border-surface-container-highest focus:border-primary-container outline-none py-2 pl-8 font-body-md transition-colors"
+                                        placeholder="https://youtube.com/..." type="url" />
+                                </div>
+                                <p class="text-body-sm text-on-surface-variant mt-2 flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-sm">info</span>
+                                    Provide a YouTube/FB link for transparency
+                                </p>
+                            </div>
+                        </div>
+                        <div>
+                            <label
+                                class="block text-label-bold text-on-surface-variant mb-xs uppercase tracking-wider">Campaign
+                                Summary</label>
+                            <textarea
+                                class="w-full bg-transparent border-b-2 border-surface-container-highest focus:border-primary-container outline-none py-2 font-body-md transition-colors resize-none"
+                                placeholder="A brief, powerful overview of your mission..." rows="3"></textarea>
+                        </div>
+                        <div>
+                            <label
+                                class="block text-label-bold text-on-surface-variant mb-xs uppercase tracking-wider">Detailed
+                                Description</label>
+                            <div
+                                class="w-full h-80 rounded-xl border border-surface-container-highest bg-surface-container-lowest p-md flex flex-col">
+                                <div class="flex gap-4 border-b border-surface-container pb-xs mb-md">
+                                    <span
+                                        class="material-symbols-outlined text-outline cursor-pointer hover:text-primary">format_bold</span>
+                                    <span
+                                        class="material-symbols-outlined text-outline cursor-pointer hover:text-primary">format_italic</span>
+                                    <span
+                                        class="material-symbols-outlined text-outline cursor-pointer hover:text-primary">format_list_bulleted</span>
+                                    <span
+                                        class="material-symbols-outlined text-outline cursor-pointer hover:text-primary">link</span>
+                                    <span
+                                        class="material-symbols-outlined text-outline cursor-pointer hover:text-primary">image</span>
+                                </div>
+                                <div class="text-surface-dim font-body-md flex-grow">
+                                    Start writing your institutional-grade project proposal here...
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Right Column (Sidebar) -->
+            <div class="lg:col-span-4 space-y-gutter">
+                <div class="glass-card rounded-xl p-md shadow-[0px_10px_30px_rgba(71,85,105,0.08)]">
+                    <h3 class="font-headline-md text-on-surface mb-md">Campaign Parameters</h3>
+                    <div class="space-y-md">
+                        <div>
+                            <label
+                                class="block text-label-bold text-on-surface-variant mb-xs uppercase tracking-wider">Goal
+                                Amount ($)</label>
+                            <div class="relative flex items-center">
+                                <span
+                                    class="material-symbols-outlined absolute left-0 text-on-surface-variant">payments</span>
+                                <input
+                                    class="w-full bg-transparent border-b-2 border-surface-container-highest focus:border-primary-container outline-none py-2 pl-8 font-headline-md text-emerald-600 transition-colors"
+                                    placeholder="50,000" type="number" />
+                            </div>
+                            <div class="mt-2 p-2 bg-tertiary-fixed/30 rounded-lg flex gap-2 items-start">
+                                <span class="material-symbols-outlined text-tertiary text-sm mt-0.5">lightbulb</span>
+                                <p class="text-label-md text-on-tertiary-container">Setting a realistic goal increases
+                                    investor confidence by 40%.</p>
+                            </div>
+                        </div>
+                        <div>
+                            <label
+                                class="block text-label-bold text-on-surface-variant mb-xs uppercase tracking-wider">End
+                                Date</label>
+                            <div class="relative flex items-center">
+                                <span
+                                    class="material-symbols-outlined absolute left-0 text-on-surface-variant">calendar_today</span>
+                                <input
+                                    class="w-full bg-transparent border-b-2 border-surface-container-highest focus:border-primary-container outline-none py-2 pl-8 font-body-md transition-colors"
+                                    type="date" />
+                            </div>
+                        </div>
+                        <div>
+                            <label
+                                class="block text-label-bold text-on-surface-variant mb-xs uppercase tracking-wider">Location</label>
+                            <div class="relative flex items-center">
+                                <span
+                                    class="material-symbols-outlined absolute left-0 text-on-surface-variant">location_on</span>
+                                <input
+                                    class="w-full bg-transparent border-b-2 border-surface-container-highest focus:border-primary-container outline-none py-2 pl-8 font-body-md transition-colors"
+                                    placeholder="City, Country" type="text" />
+                            </div>
+                            <div
+                                class="mt-md w-full h-32 rounded-xl bg-surface-container-high overflow-hidden border border-outline-variant">
+                                <img class="w-full h-full object-cover"
+                                    data-alt="minimalist stylized map showing clean urban grid lines in soft slate and white tones"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPqYV0PFjjRaaWNbddNnoDqJKJHIFKc_M_TKhioDhA2BcUxJQTmdWwfolnQYUdxbTzLTLiWFHJ9hVXHDZCQzMS4Rx1U14Ns0CpGZ2vrnhd_Py6BrssGtTWrLCCy-SQVcEz11xSa_XVWfKFx880mzloc4xfIMKRprYXkEtFIFgTyUqi99k10MzUnd5a4QUDN8qVL2qROxZ1AN8O2VsdR5VLuoFzHXuNYlNPSgx9PT1pJg8qpVnpBnfEZxNUdW30jLzpta1tcCpBMX_D" />
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between py-md border-t border-surface-container">
+                            <div class="flex flex-col">
+                                <span class="text-label-bold text-on-surface uppercase tracking-wider">Volunteer
+                                    Needed?</span>
+                                <span class="text-body-sm text-on-surface-variant">Include community
+                                    participation</span>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input class="sr-only peer emerald-glow" type="checkbox" value="" />
+                                <div
+                                    class="toggle-bg w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container">
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <button
+                        class="w-full bg-primary-container text-on-primary py-4 rounded-xl font-bold font-headline-md shadow-lg shadow-emerald-600/20 active:scale-95 transition-transform"
+                        type="submit">
+                        Launch Campaign
+                    </button>
+                    <button
+                        class="w-full bg-transparent border-2 border-outline-variant text-on-surface-variant py-4 rounded-xl font-bold font-headline-md hover:bg-surface-container transition-colors"
+                        type="button">
+                        Save as Draft
+                    </button>
+                </div>
+                <div class="p-md bg-emerald-50 rounded-xl border border-emerald-100 flex gap-4">
+                    <span class="material-symbols-outlined text-emerald-600"
+                        style="font-variation-settings: 'FILL' 1;">verified_user</span>
+                    <div>
+                        <p class="text-label-bold text-emerald-800">Growth Shield Protection</p>
+                        <p class="text-body-sm text-emerald-700">This campaign will be reviewed for Institutional Grade
+                            compliance within 24 hours.</p>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </main>
+    <footer
+        class="w-full py-8 px-8 flex flex-col md:flex-row justify-between items-center max-w-[1280px] mx-auto bg-slate-50 border-t border-slate-200">
+        <div class="mb-4 md:mb-0">
+            <span class="font-bold text-slate-900 font-headline-md">ImpactGrow</span>
+            <p class="font-manrope text-xs text-slate-500 mt-1">© 2024 ImpactGrow. Secure Institutional Crowdfunding.
+            </p>
+        </div>
+        <div class="flex gap-6">
+            <a class="font-manrope text-xs text-slate-500 hover:text-emerald-500 underline" href="#">Privacy Policy</a>
+            <a class="font-manrope text-xs text-slate-500 hover:text-emerald-500 underline" href="#">Terms of
+                Service</a>
+            <a class="font-manrope text-xs text-slate-500 hover:text-emerald-500 underline" href="#">Risk Disclosure</a>
+            <a class="font-manrope text-xs text-slate-500 hover:text-emerald-500 underline" href="#">Help Center</a>
+        </div>
+    </footer>
+</body>
+
+</html>
