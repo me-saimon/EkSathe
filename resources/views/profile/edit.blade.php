@@ -1,35 +1,7 @@
 <x-app-layout>
     <div class="flex pt-16 min-h-screen font-manrope">
         <!-- Sidebar Navigation -->
-        <aside class="h-screen w-64 fixed left-0 top-16 border-r border-slate-100 bg-white shadow-none z-40">
-            <div class="flex flex-col p-6 h-full justify-between">
-                <div class="space-y-6">
-                    <div class="pb-6 border-b border-slate-100">
-                        <h4 class="text-emerald-800 font-bold text-lg">{{ Auth::user()->full_name }}</h4>
-                        <p class="text-slate-500 text-xs uppercase tracking-widest">{{ Auth::user()->is_volunteer ? 'Verified Volunteer' : 'Global Benefactor' }}</p>
-                    </div>
-                    <nav class="space-y-2">
-                        <a href="{{ route('profile.edit') }}" class="flex items-center gap-3 px-4 py-3 text-emerald-700 bg-emerald-50/50 rounded-lg transition-all font-bold">
-                            <span class="material-symbols-outlined">person</span>
-                            <span>General Profile</span>
-                        </a>
-                        <a href="{{ route('profile.donations') }}" class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-50 rounded-lg transition-all">
-                            <span class="material-symbols-outlined">history</span>
-                            <span>Donation History</span>
-                        </a>
-                    </nav>
-                </div>
-                <div class="space-y-2 pb-20">
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <button type="submit" class="w-full flex items-center gap-3 px-4 py-3 text-red-500 hover:bg-red-50 rounded-lg transition-all">
-                            <span class="material-symbols-outlined">logout</span>
-                            <span>Sign Out</span>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </aside>
+        @include('layouts.sidebar')
 
         <!-- Main Content -->
         <main class="flex-1 ml-64 p-12 bg-slate-50 min-h-screen">

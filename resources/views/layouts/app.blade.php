@@ -11,11 +11,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
 
                       <script src="https://cdn.tailwindcss.com"></script>
-
+<!-- Add this to the <head> of layouts/app.blade.php -->
+<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <style>
+        [x-cloak] { display: none !important; }
         .glass-card {
             background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(16px);
@@ -37,8 +39,14 @@
             {{ $slot }}
         </main>
 
+
+        @if(request()->routeIs('campaigns.index') || request()->routeIs('landing') || request()->routeIs('help.request.create'))
+
         <!-- Footer -->
         @include('layouts.footer')
+
+        @endif
+
     </div>
 </body>
 </html>

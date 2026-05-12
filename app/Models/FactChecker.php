@@ -1,15 +1,14 @@
 <?php
 
-namespace app\Models;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class FactChecker extends Model
 {
-    protected $table = 'fact_checker';
+    protected $table = 'fact_checkers';
 
     protected $fillable = ['user_id', 'campaign_id', 'vote'];
-
     public function user() {
         return $this->belongsTo(User::class);
     }

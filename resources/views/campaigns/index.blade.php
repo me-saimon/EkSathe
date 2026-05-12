@@ -76,6 +76,8 @@
                 @endforelse
             </div>
 
+
+
             <!-- Pagination -->
             <div class="mt-16">
                 {{ $campaigns->appends(request()->query())->links() }}

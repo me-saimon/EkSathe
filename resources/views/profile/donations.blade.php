@@ -1,26 +1,8 @@
 <x-app-layout>
     <div class="flex pt-16 min-h-screen font-manrope">
         <!-- Sidebar Navigation -->
-        <aside class="h-screen w-64 fixed left-0 top-16 border-r border-slate-100 bg-white shadow-none z-40">
-            <div class="flex flex-col p-6 h-full justify-between">
-                <div class="space-y-6">
-                    <nav class="space-y-2">
-                        <a href="{{ route('profile.edit') }}" class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-50 rounded-lg transition-all">
-                            <span class="material-symbols-outlined">person</span>
-                            <span>General Profile</span>
-                        </a>
-                        <a href="{{ route('profile.donations') }}" class="flex items-center gap-3 px-4 py-3 text-emerald-700 bg-emerald-50/50 rounded-lg transition-all font-bold">
-                            <span class="material-symbols-outlined">history</span>
-                            <span>Donation History</span>
-                        </a>
-                        <a href="{{ route('campaigns.mine') }}" class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:bg-slate-50 rounded-lg transition-all">
-                            <span class="material-symbols-outlined">campaign</span>
-                            <span>My Campaigns</span>
-                        </a>
-                    </nav>
-                </div>
-            </div>
-        </aside>
+
+        @include('layouts.sidebar')
 
         <!-- Main Content -->
         <main class="flex-1 ml-64 p-12 bg-slate-50 min-h-screen">

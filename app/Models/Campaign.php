@@ -37,7 +37,7 @@ class Campaign extends Model
         return $this->hasMany(Comment::class);
     }
 
-    public function factChecks() {
-        return $this->hasMany(FactChecker::class);
-    }
+        public function factChecks() {
+    return $this->hasMany(FactChecker::class, 'campaign_id');
+}
 }

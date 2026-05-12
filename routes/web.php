@@ -66,6 +66,19 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 
 
+use App\Http\Controllers\CampaignProgressController;
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    // Post a new progress update
+    Route::post('/campaigns/{campaign}/progress', [CampaignProgressController::class, 'store'])->name('campaigns.progress.store');
+
+    // Optional: Delete an update
+    Route::delete('/progress/{progress}', [CampaignProgressController::class, 'destroy'])->name('campaigns.progress.destroy');
+});
+
+
+
+
 
 
 Route::middleware('auth', 'verified')->group(function () {
@@ -81,11 +94,11 @@ Route::get('/explore', [CampaignController::class, 'index'])->name('campaigns.in
 
 
 // Protected Routes (Must be logged in)
+
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/campaigns/create', [CampaignController::class, 'create'])->name('campaigns.create');
     // Campaign Details Route (Using Route Model Binding)
 Route::get('/campaigns/{campaign}', [CampaignController::class, 'show'])->name('campaigns.show');
-
     Route::post('/campaigns', [CampaignController::class, 'store'])->name('campaigns.store');
 });
 
@@ -105,3 +118,103 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 
 
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    // Show the user's volunteering history
+    Route::get('/volunteer-history', [VolunteerApplicationController::class, 'history'])->name('volunteer.history');
+});
+
+use App\Http\Controllers\FactCheckerController;
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    // Cast a Trust/Flag vote
+    Route::post('/campaigns/{campaign}/vote', [FactCheckerController::class, 'vote'])->name('campaigns.vote');
+});
+
+
+use App\Http\Controllers\DonationController;
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    // Initiate payment
+    Route::post('/donate/{campaign}', [DonationController::class, 'initiate'])->name('donate.initiate');
+    });
+
+// SSLCommerz Callbacks (Must be excluded from CSRF)
+Route::post('/donate/success', [DonationController::class, 'success'])->name('donate.success');
+Route::post('/donate/fail', [DonationController::class, 'fail'])->name('donate.fail');
+Route::post('/donate/cancel', [DonationController::class, 'cancel'])->name('donate.cancel');
+
+
+
+use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\AdminCampaignController;
+use App\Http\Controllers\Admin\AdminHelpRequestController;
+
+Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+    // Dashboard
+    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+
+    // Help Requests
+    // Route::get('/help-requests', [AdminHelpRequestController::class, 'index'])->name('help.requests');
+    // Route::patch('/help-requests/{helpRequest}/status', [AdminHelpRequestController::class, 'updateStatus'])->name('help.status');
+
+    // Campaign Moderation
+    Route::get('/campaigns', [AdminCampaignController::class, 'index'])->name('campaigns');
+    Route::patch('/campaigns/{campaign}/rank', [AdminCampaignController::class, 'updateRank'])->name('campaigns.rank');
+});
+
+
+
+
+Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+    // List all requests
+    Route::get('/help-requests', [AdminHelpRequestController::class, 'index'])->name('help.requests');
+
+    // Update request status
+    Route::patch('/help-requests/{helpRequest}/status', [AdminHelpRequestController::class, 'updateStatus'])->name('help.status');
+
+    // Delete/Archive request (Optional)
+    Route::delete('/help-requests/{helpRequest}', [AdminHelpRequestController::class, 'destroy'])->name('help.destroy');
+});
+
+
+use App\Http\Controllers\Admin\AdminUserController;
+
+Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+
+    // User Management
+    Route::get('/users', [AdminUserController::class, 'index'])->name('users.index');
+    Route::patch('/users/{user}/role', [AdminUserController::class, 'toggleRole'])->name('users.toggle-role');
+    Route::patch('/users/{user}/verify-volunteer', [AdminUserController::class, 'verifyVolunteer'])->name('users.verify-volunteer');
+});
+
+
+// use App\Http\Controllers\Admin\AdminCampaignController;
+
+Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+    // List all campaigns for auditing
+    Route::get('/campaigns', [AdminCampaignController::class, 'index'])->name('campaigns');
+
+    // Feature/Rank a campaign
+    Route::patch('/campaigns/{campaign}/rank', [AdminCampaignController::class, 'updateRank'])->name('campaigns.rank');
+
+    // Suspend or Reactivate a campaign
+    Route::patch('/campaigns/{campaign}/status', [AdminCampaignController::class, 'toggleStatus'])->name('campaigns.status');
+});
+
+use App\Http\Controllers\Admin\AdminDonationController;
+
+Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+    // Global Financial Ledger
+    Route::get('/donations', [AdminDonationController::class, 'index'])->name('donations.index');
+});
+
+
+
+use App\Http\Controllers\CampaignStreamController;
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    // Creator controls
+    Route::post('/campaigns/{campaign}/go-live', [CampaignStreamController::class, 'startStream'])->name('campaigns.stream.start');
+    Route::post('/campaigns/{campaign}/end-live', [CampaignStreamController::class, 'stopStream'])->name('campaigns.stream.stop');
+});

@@ -28,6 +28,21 @@ class VolunteerApplicationController extends Controller
         return view('volunteer.apply', compact('campaign'));
     }
 
+    public function history()
+{
+    $applications = Auth::user()->applications()
+        ->with('campaign')
+        ->latest()
+        ->paginate(10);
+
+    // Calculate quick stats for the header
+    $totalApplications = Auth::user()->applications()->count();
+    $approvedCount = Auth::user()->applications()->where('status', 'approved')->count();
+    $completedCount = Auth::user()->applications()->where('status', 'completed')->count();
+
+    return view('volunteer.history', compact('applications', 'totalApplications', 'approvedCount', 'completedCount'));
+}
+
     public function store(Request $request, Campaign $campaign)
     {
         $request->validate([
